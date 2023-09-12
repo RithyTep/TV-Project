@@ -1,0 +1,86 @@
+<div class="container">
+  <div class="row">
+    <div class="text-center my-3">
+      <h1>Welcome to Live TV Streaming!</h1>
+    </div>
+    <div class="col-12">
+      <video #videoPlayer controls autoplay class="w-100 video"></video>
+    </div>
+    <div class="channel">
+      <h2>Local Channels</h2>
+      <button
+        *ngFor="let channel of store.localChannels; let i = index"
+        mat-raised-button
+        color="primary"
+        [class.active]="activeLocalChannel === i"
+        (click)="changeChannel(i, true)"
+      >
+        {{ channel.name }}
+      </button>
+    </div>
+    <div class="channel">
+      <h2>Global Channels</h2>
+      <button
+        *ngFor="let channel of store.globalChannels; let i = index"
+        mat-raised-button
+        color="primary"
+        [class.active]="activeGlobalChannel === i"
+        (click)="changeChannel(i, false)"
+      >
+        {{ channel.name }}
+      </button>
+    </div>
+  </div>
+</div>
+<div class="remote-control">
+    <div class="volume-display">
+        Volume: {{ volumeLevel }}
+      </div>
+  <div class="number-display">
+    {{ channelIndex }}
+  </div>
+
+  <div class="">
+    <button class="remote-button">&#8593;</button>
+    <!-- Up arrow -->
+  </div>
+  <div class="">
+    <button class="remote-button">&#8592;</button>
+    <!-- Left arrow -->
+    <button class="remote-button">OK</button>
+    <button class="remote-button">&#8594;</button>
+    <!-- Right arrow -->
+  </div>
+  <div class="">
+    <button class="remote-button">&#8595;</button>
+    <!-- Down arrow -->
+  </div>
+  <div class="remote-row">
+    <button class="remote-button" (click)="increaseVolume()">Vol +</button>
+    <button
+      class="remote-button"
+      (click)="changeChannel(activeLocalChannel + 1, true)"
+    >
+      Ch +
+    </button>
+  </div>
+  <div class="remote-row">
+    <button class="remote-button" (click)="decreaseVolume()">Vol -</button>
+    <button
+      class="remote-button"
+      (click)="changeChannel(activeLocalChannel - 1, true)"
+    >
+      Ch -
+    </button>
+  </div>
+  <div class="channel-input">
+    <div class="number-buttons">
+      <button
+        *ngFor="let num of [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]"
+        (click)="updateChannelIndex(num)"
+      >
+        {{ num }}
+      </button>
+    </div>
+  </div>
+</div>
