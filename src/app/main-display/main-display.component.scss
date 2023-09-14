@@ -1,101 +1,127 @@
-
 .container {
-    font-family: Arial, sans-serif;
-    background-color:#181818;
-    height: 100%; // Full height
-    min-width: 100%;
-    color:#fff;
+  font-family: Arial, sans-serif;
+  background-color: rgb(113 164 190);
+  height: 100vh; // Full height
+  min-width: 100%;
+  color: #fff;
+}
+*{
+  background-color: rgb(113 164 190);
+}
+h1 {
+  color: #ffffff;
+  text-align: center;
+}
+.channel {
+  width: 100%;
+  text-align: center;
+}
+.btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+.centre {
+  display: flex;
+  justify-content: center;
+}
+.tv-frame {
+  width: 880px;
+  height: 670px;
+  scale: 90%;
+  background-image: url("/assets/PngItem_1681287.png"); /* Path to your TV frame image */
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+.video {
+  border-radius: 9px;
+  position: absolute;
+  top: 9px;
+  left: 9px;
+  object-fit: fill;
+  width: 98%;
+  height: 79%;
+}
+button.active {
+  background-color: #007bff;
+  color: white;
+}
+.remote-control {
+  display: none;
+}
+.remote-row {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
 
-  }
-  h1 {
-    color: #ffffff;
-  }
-  .channel{
-    width: 100%;
-    text-align: center;
-  }
-  .btn-primary {
-    background-color: #007bff;
-    border-color: #007bff;
-  }
-  
-  .video {
-    height: 460px;
-  }
-  button.active {
-    background-color: #007bff;
-    color: white;
-  }
+.remote-button {
+  margin: 5px;
+  padding: 5px 10px;
+  font-size: 14px;
+  background-color: #f0f0f0;
+  border: none;
+  border-radius: 5px;
+  color: #333;
+}
+
+.number-buttons {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.num {
+  width: 100px;
+  height: 50px;
+  font-size: 16px;
+  background-color: #f0f0f0;
+  border: none;
+  border-radius: 5px;
+  color: #333;
+}
+
+.volume-display,
+.number-display {
+  background-color: #f0f0f0;
+  color: #000000;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 6px;
+  font-size: 16px;
+}
+
+@media screen and (max-width: 600px) {
   .remote-control {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .title-remote {
+    font-size: 12px;
+  }
+  .container {
     display: none;
   }
-  @media screen and (max-width: 600px) {
-    .container{
-        display: none;
-    }
-    .remote-control {
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    .remote-control {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        background-color: #333;
-        padding: 20px;
-        border-radius: 15px;
-      }
-      
-      .remote-row {
-        display: flex;
-        justify-content: center;
-        margin-bottom: 10px;
-      }
-      
-      .remote-button {
-        color: #007bff;
-        padding: 0 5px;
-        border-radius: 5px;
-        margin: 5px;
-      }
-   
-      .remote-row {
-        display: flex;
-        justify-content: center;
-      }
-      
-      .remote-button {
-        margin: 5px;
-        padding: 5px 10px;
-        font-size: 14px;
-      }
-      
-      .number-buttons {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 10px;
-      }
-      
-      .number-display {
-        background-color: #fff;
-        color: #000;
-        padding: 0 25px;
-        margin-bottom: 20px;
-        border-radius: 6px;
-      }
-      @keyframes fade {
-        0% { opacity: 1; }
-        50% { opacity: 1; }
-        100% { opacity: 0; }
-      }
-      
-      .volume-display {
-        animation: fade 3s;
-      }
+  .remote-control {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
-  
+  .remote-control {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 15px;
+  }
+  .title-remote{
+    font-size: 16px !important;
+  }
+}
