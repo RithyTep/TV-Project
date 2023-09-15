@@ -1,13 +1,10 @@
 .container {
   font-family: Arial, sans-serif;
-  background-color: rgb(113 164 190);
   height: 100vh; // Full height
   min-width: 100%;
   color: #fff;
 }
-*{
-  background-color: rgb(113 164 190);
-}
+
 h1 {
   color: #ffffff;
   text-align: center;
@@ -25,7 +22,7 @@ h1 {
   justify-content: center;
 }
 .tv-frame {
-  width: 880px;
+  min-width: 880px;
   height: 670px;
   scale: 90%;
   background-image: url("/assets/PngItem_1681287.png"); /* Path to your TV frame image */
@@ -36,11 +33,11 @@ h1 {
 .video {
   border-radius: 9px;
   position: absolute;
-  top: 9px;
-  left: 9px;
+  top: 8px;
+  left: 7px;
   object-fit: fill;
-  width: 98%;
-  height: 79%;
+  width: 98.5%;
+  height: 79.6%;
 }
 button.active {
   background-color: #007bff;

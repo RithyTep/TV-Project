@@ -18,7 +18,8 @@ import { SidenavComponent } from './sidenav/sidenav.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { MatListModule } from '@angular/material/list';
-
+import { MatIconModule } from '@angular/material/icon';
+import { MatRippleModule } from '@angular/material/core';
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,6 +35,8 @@ import { MatListModule } from '@angular/material/list';
     FormsModule,
     MatSidenavModule,
     MatListModule,
+    MatIconModule,
+    MatRippleModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
     provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),

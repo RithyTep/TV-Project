@@ -1,10 +1,69 @@
 ::ng-deep .sidebar {
-    background-color: #4e6b7b;
-    height: 100vh;
-  }
-  ::ng-deep .text-a {
-    color: #fff !important;
-  }
-  .sidenav-content{
-    height: 101vh;
-  }  
+  background-color: #4e6b7b;
+  height: 100vh;
+}
+::ng-deep .text-a {
+  color: #fff !important;
+}
+.sidenav-content {
+  height: 100vh;
+  background-color: rgb(113 164 190);
+}
+
+.logo {
+  display: inline-block;
+  position: relative;
+  width: 90px;
+  margin-top: 70px;
+  margin-bottom: 20px;
+}
+
+.logo img {
+  transition: transform 0.3s ease;
+}
+
+.logo:hover img {
+  transform: rotate(180deg);
+}
+.button {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+  margin-top: 12px;
+  scrollbar-width: none;
+  border-radius: 10px;
+  width: 100%;
+  padding-left: 3px;
+}
+
+.button a {
+  display: flex;
+  flex-direction: row;
+  gap: 3px;
+  align-items: start;
+  flex-shrink: 0;
+  padding: 11px 10px;
+  background-color: rgba(0, 0, 0, 0.2);
+  color: #dfdfdf;
+  opacity: 0.8;
+  transition: opacity 0.3s;
+  border-radius: 10px;
+  width: 90%;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.button a:hover {
+  opacity: 1;
+}
+.sidebar {
+  transition: width 0.3s;
+}
+
+.toggle-button {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+// padding: 0 1rem;
+//   width: 230px;

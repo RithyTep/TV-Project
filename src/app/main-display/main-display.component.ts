@@ -9,12 +9,15 @@ import {
   AngularFirestoreDocument,
   DocumentReference,
 } from '@angular/fire/compat/firestore';
-import { updateDoc, onSnapshot } from 'firebase/firestore';
+import { updateDoc, onSnapshot, doc, getFirestore } from 'firebase/firestore';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 interface FirestoreData {
   SelectedIndex: number;
   ChannelName: string;
+  IncreaseVolume: number;
+  DecreaseVolume: number;
   key: string;
+  username: string | null;
 }
 
 @Component({
@@ -25,8 +28,17 @@ interface FirestoreData {
 export class MainDisplayComponent implements AfterViewInit {
   HouseForm: any;
   documentRef: DocumentReference<unknown> | null = null; // Explicitly define the type
-  data: FirestoreData | undefined;
+  data!: {
+    SelectedIndex: number;
+    ChannelName: string;
+    IncreaseVolume: number;
+    DecreaseVolume: number;
+    key: string;
+    username: string | null;
+  };
   unsubscribe!: () => void; // Add this property
+  volumeLevel = 0;
+
   selectedIndex: any;
   constructor(
     private route: ActivatedRoute,
@@ -48,56 +60,63 @@ export class MainDisplayComponent implements AfterViewInit {
     }
   }
 
-
-
   @ViewChild('videoPlayer') videoplayer!: ElementRef;
   changeChannelTimeout!: any;
   activeLocalChannel = -1;
   activeGlobalChannel = -1;
   channelIndex = 0;
   hls = new Hls();
-  createCollection(selectedIndex: number, channelName: string) {
+
+  async createCollection(selectedIndex: number, channelName: string) {
     const collectionRef = this.firestore.collection('test');
     const documentId = 'v9dWU1YRCsIOISzKbbjH'; // Replace with your desired document ID
+    const user = await this.afAuth.currentUser;
+    if (user) {
+      const username = user.displayName; // Get the username from the authenticated user
 
-    const data = {
-      SelectedIndex: selectedIndex,
-      ChannelName: channelName,
-      IncreaseVolume:
-        this.volumeLevel < 1 ? this.volumeLevel + 0.1 : this.volumeLevel,
-      DecreaseVolume:
-        this.volumeLevel > 0 ? this.volumeLevel - 0.1 : this.volumeLevel,
-      key: '',
-    };
-    this.data = data;
-    const docRef: AngularFirestoreDocument<unknown> =
-      collectionRef.doc(documentId);
-    this.documentRef = docRef.ref; // Access the underlying Firebase document reference
-    data.key = docRef.ref.id; // Store the key of the document in the data object
-    docRef
-      .set(data)
-      .then(() => {
-        // Document successfully created or updated
+      const data = {
+        SelectedIndex: selectedIndex,
+        ChannelName: channelName,
+        IncreaseVolume:
+          this.volumeLevel < 1 ? this.volumeLevel + 0.1 : this.volumeLevel,
+        DecreaseVolume:
+          this.volumeLevel > 0 ? this.volumeLevel - 0.1 : this.volumeLevel,
+        key: '',
+        username: username, // Add the username field
+      };
 
-        // Update the selected index in Firestore
-        if (this.documentRef) {
-          updateDoc(this.documentRef, { SelectedIndex: selectedIndex });
+      this.data = data;
+      const docRef: AngularFirestoreDocument<unknown> =
+        collectionRef.doc(documentId);
+      this.documentRef = docRef.ref; // Access the underlying Firebase document reference
+      data.key = docRef.ref.id; // Store the key of the document in the data object
+      docRef
+        .set(data)
+        .then(() => {
+          // Document successfully created or updated
+
+          // Update the selected index in Firestore
+          if (this.documentRef) {
+            updateDoc(this.documentRef, { SelectedIndex: selectedIndex });
+          }
+        })
+        .catch((error) => {
+          // Error occurred while creating or updating the document
+        });
+
+      this.unsubscribe = onSnapshot(this.documentRef, (doc) => {
+        const data = doc.data() as FirestoreData;
+        if (data) {
+          const selectedIndex = data.SelectedIndex;
+          this.router.navigate(['/display', data.ChannelName, selectedIndex]);
         }
-      })
-      .catch((error) => {
-        // Error occurred while creating or updating the document
       });
-
-    this.unsubscribe = onSnapshot(this.documentRef, (doc) => {
-      const data = doc.data() as FirestoreData;
-      if (data) {
-        const selectedIndex = data.SelectedIndex;
-        this.router.navigate(['/display', data.ChannelName, selectedIndex]);
-      }
-    });
-    return docRef;
+      return docRef;
+    }
+    throw new Error('User is not authenticated.'); // or return Promise.reject('User is not authenticated.');
   }
   ngOnInit() {
+    this.fetchData();
     this.firestore
       .collection('test')
       .doc('v9dWU1YRCsIOISzKbbjH')
@@ -110,9 +129,45 @@ export class MainDisplayComponent implements AfterViewInit {
         }
       });
   }
+  fetchData(): void {
+    this.afAuth.authState.subscribe((user) => {
+      if (user) {
+        const userDoc: AngularFirestoreDocument<FirestoreData> =
+          this.firestore.doc<FirestoreData>(`test/${user.uid}`);
+        userDoc.valueChanges().subscribe((data: FirestoreData | undefined) => {
+          const {
+            SelectedIndex = 0,
+            ChannelName = '',
+            IncreaseVolume = 0,
+            DecreaseVolume = 0,
+            key = '',
+            username = null,
+          } = data || {};
+
+          this.data = {
+            SelectedIndex,
+            ChannelName,
+            IncreaseVolume,
+            DecreaseVolume,
+            key,
+            username,
+          };
+        });
+      } else {
+        this.data = {
+          SelectedIndex: 0,
+          ChannelName: '',
+          IncreaseVolume: 0,
+          DecreaseVolume: 0,
+          key: '',
+          username: null,
+        };
+      }
+    });
+  }
   ngAfterViewInit() {
     if (Hls.isSupported()) {
-      this.route.paramMap.subscribe((params) => {
+      this.route.paramMap.subscribe(async (params) => {
         const channelName = (params.get('channelName') || '').replace(
           /-/g,
           ' '
@@ -131,28 +186,41 @@ export class MainDisplayComponent implements AfterViewInit {
           // Get the document reference
           const docRef = this.createCollection(index, channelName);
 
-          // Subscribe to changes
-          docRef.valueChanges().subscribe((data: any) => {
-            if (data) {
-              // Update the video volume based on IncreaseVolume and DecreaseVolume
-              if (data.IncreaseVolume !== undefined) {
-                this.videoplayer.nativeElement.volume =
-                  data.IncreaseVolume / 100;
-              }
-              if (data.DecreaseVolume !== undefined) {
-                this.videoplayer.nativeElement.volume =
-                  data.DecreaseVolume / 100;
-              }
+          // Subscribe to changes if docRef is defined
+          if (docRef) {
+            (await docRef).valueChanges().subscribe(async (data: any) => {
+              if (data) {
+                // Update the video volume based on IncreaseVolume and DecreaseVolume
+                if (data.IncreaseVolume !== undefined) {
+                  this.videoplayer.nativeElement.volume =
+                    data.IncreaseVolume / 100;
+                }
+                if (data.DecreaseVolume !== undefined) {
+                  this.videoplayer.nativeElement.volume =
+                    data.DecreaseVolume / 100;
+                }
 
-              // Update the channel URL if it has changed
-              if (
-                data.ChannelUrl !== undefined &&
-                this.activeLocalChannel === index
-              ) {
-                this.playChannel(data.ChannelUrl);
+                // Update the channel URL if it has changed
+                if (
+                  data.ChannelUrl !== undefined &&
+                  this.activeLocalChannel === index
+                ) {
+                  this.playChannel(data.ChannelUrl);
+                }
+
+                // Retrieve the username from the authenticated user
+                const user = await this.afAuth.currentUser;
+                const username = user?.displayName;
+
+                // Update the username in Firestore
+                if (this.documentRef && username) {
+                  const firestore = getFirestore();
+                  const docRef = doc(firestore, 'test', this.documentRef.id);
+                  await updateDoc(docRef, { username });
+                }
               }
-            }
-          });
+            });
+          }
         }
       });
     }
@@ -211,41 +279,6 @@ export class MainDisplayComponent implements AfterViewInit {
     // Navigate based on the channel name and index
     this.router.navigate(['/display', channelName, index]);
   }
-  volumeLevel = 0;
-  increaseVolume() {
-    let currentVolume = this.videoplayer.nativeElement.volume;
-    if (currentVolume < 1) {
-      this.videoplayer.nativeElement.volume = Math.min(currentVolume + 0.1, 1);
-      this.volumeLevel = Math.round(
-        this.videoplayer.nativeElement.volume * 100
-      );
-
-      // Update Firestore
-      const channelName =
-        this.store.localChannels[this.activeLocalChannel].name;
-      this.createCollection(this.activeLocalChannel, channelName);
-    }
-  }
-
-  decreaseVolume() {
-    let currentVolume = this.videoplayer.nativeElement.volume;
-    if (currentVolume > 0) {
-      this.videoplayer.nativeElement.volume = Math.max(currentVolume - 0.1, 0);
-      this.volumeLevel = Math.round(
-        this.videoplayer.nativeElement.volume * 100
-      );
-
-      // Update Firestore
-      const channelName =
-        this.store.localChannels[this.activeLocalChannel].name;
-      this.createCollection(this.activeLocalChannel, channelName);
-    }
-  }
-
-  onChannelIndexChange(event: Event) {
-    const target = event.target as HTMLInputElement;
-    this.channelIndex = +target.value;
-  }
   updateChannelIndex(num: number) {
     this.channelIndex = this.channelIndex * 10 + num;
 
@@ -264,5 +297,32 @@ export class MainDisplayComponent implements AfterViewInit {
     // Update Firestore
     const channelName = this.store.localChannels[this.channelIndex].name;
     this.createCollection(this.channelIndex, channelName);
+  }
+
+  increaseVolume() {
+    this.updateVolume(0.1);
+  }
+
+  decreaseVolume() {
+    this.updateVolume(-0.1);
+  }
+
+  updateVolume(change: number) {
+    let currentVolume = this.videoplayer.nativeElement.volume;
+    const newVolume = Math.max(Math.min(currentVolume + change, 1), 0);
+    if (currentVolume !== newVolume) {
+      this.videoplayer.nativeElement.volume = newVolume;
+      this.volumeLevel = Math.round(newVolume * 100);
+
+      // Update Firestore
+      const channelName =
+        this.store.localChannels[this.activeLocalChannel].name;
+      this.createCollection(this.activeLocalChannel, channelName);
+    }
+  }
+
+  onChannelIndexChange(event: Event) {
+    const target = event.target as HTMLInputElement;
+    this.channelIndex = +target.value;
   }
 }
