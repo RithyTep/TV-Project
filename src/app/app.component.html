@@ -1,1 +1,14 @@
+<!-- <mat-progress-bar
+  mode="indeterminate"
+  *ngIf="showLoading"
+  class="app-loader"
+></mat-progress-bar>
+<router-outlet *ngIf="!showLoading"></router-outlet>
+<ng-container *ngIf="showLoading">
+  <div class="centre">
+    <ng-lottie height="400px" [options]="options"></ng-lottie>
+  </div>
+</ng-container> -->
+
+
 <router-outlet></router-outlet>

@@ -1,9 +1,10 @@
-<mat-sidenav-container class="sidebar-container">
-  <mat-sidenav class="sidebar" mode="side" [opened]="sidebarOpened">
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #sidenav mode="side" [opened]="!isMobileScreen">
     <div class="logo">
       <img
-        src="https://psc2.cf2.poecdn.net/f472af4950b1b42a5200a38e3c278821142f7233/_next/static/media/poeFullWhite.fc732b75.svg"
-        alt=""
+        id="logo-image"
+        [src]="logoSrc"
+        (contextmenu)="disableContextMenu($event)"
       />
     </div>
     <mat-nav-list>
@@ -15,11 +16,13 @@
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content class="sidenav-content">
-    <button mat-icon-button (click)="toggleSidebar()">
-      <mat-icon>{{
-        sidebarOpened ? "chevron_left" : "chevron_right"
-      }}</mat-icon>
-    </button>
-    <router-outlet></router-outlet>
+    <!-- <button mat-icon-button (click)="toggleSidenav()">
+      <mat-icon>{{ isMobileScreen ? 'chevron_right' : 'chevron_left' }}</mat-icon>
+    </button> -->
+    <div class="content">
+      <!-- Your page content here -->
+      <app-navbar></app-navbar>
+      <router-outlet></router-outlet>
+    </div>
   </mat-sidenav-content>
 </mat-sidenav-container>

@@ -20,12 +20,16 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
 import { MatRippleModule } from '@angular/material/core';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { NavbarComponent } from './navbar/navbar.component';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 @NgModule({
   declarations: [
     AppComponent,
     MainDisplayComponent,
     RedirectComponent,
     SidenavComponent,
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,
@@ -34,9 +38,10 @@ import { MatRippleModule } from '@angular/material/core';
     BrowserAnimationsModule,
     FormsModule,
     MatSidenavModule,
-    MatListModule,
+    MatListModule,MatProgressBarModule,
     MatIconModule,
     MatRippleModule,
+    MatToolbarModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
     provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),

@@ -1,5 +1,5 @@
 ::ng-deep .sidebar {
-  background-color: #4e6b7b;
+  background-color: #bbd9e9;
   height: 100vh;
 }
 ::ng-deep .text-a {
@@ -9,27 +9,25 @@
   height: 100vh;
   background-color: rgb(113 164 190);
 }
-
 .logo {
   display: inline-block;
   position: relative;
   width: 90px;
-  margin-top: 70px;
-  margin-bottom: 20px;
 }
 
 .logo img {
+  width: 200px;
   transition: transform 0.3s ease;
 }
 
 .logo:hover img {
   transform: rotate(180deg);
 }
+
 .button {
   display: flex;
   flex-direction: column;
   gap: 13px;
-  margin-top: 12px;
   scrollbar-width: none;
   border-radius: 10px;
   width: 100%;
@@ -43,8 +41,7 @@
   align-items: start;
   flex-shrink: 0;
   padding: 11px 10px;
-  background-color: rgba(0, 0, 0, 0.2);
-  color: #dfdfdf;
+  background-color: #bbd9e9;
   opacity: 0.8;
   transition: opacity 0.3s;
   border-radius: 10px;
@@ -56,14 +53,35 @@
 .button a:hover {
   opacity: 1;
 }
-.sidebar {
-  transition: width 0.3s;
-}
+
 
 .toggle-button {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 10px;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 2;
 }
-// padding: 0 1rem;
-//   width: 230px;
+.sidenav-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.sidenav-content {
+  flex-grow: 1;
+  overflow: auto;
+}
+
+@media screen and (max-width: 600px) {
+  .sidenav-container {
+    justify-content: flex-start;
+  }
+
+  .sidenav-container > mat-sidenav {
+    display: none;
+  }
+
+  .sidenav-content > .content > app-navbar {
+    display: none;
+  }
+}

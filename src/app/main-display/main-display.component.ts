@@ -28,14 +28,7 @@ interface FirestoreData {
 export class MainDisplayComponent implements AfterViewInit {
   HouseForm: any;
   documentRef: DocumentReference<unknown> | null = null; // Explicitly define the type
-  data!: {
-    SelectedIndex: number;
-    ChannelName: string;
-    IncreaseVolume: number;
-    DecreaseVolume: number;
-    key: string;
-    username: string | null;
-  };
+  data!: FirestoreData;
   unsubscribe!: () => void; // Add this property
   volumeLevel = 0;
 
@@ -48,9 +41,7 @@ export class MainDisplayComponent implements AfterViewInit {
     public afAuth: AngularFireAuth,
     private firestore: AngularFirestore
   ) {}
-  login() {
-    this.auth.loginWithGoogle();
-  }
+
   @HostListener('window:keydown', ['$event'])
   handleKeyboardEvent(event: KeyboardEvent) {
     if (event.key === 'ArrowLeft') {

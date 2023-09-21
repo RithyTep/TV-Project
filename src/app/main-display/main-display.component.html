@@ -1,29 +1,11 @@
 <div class="container">
-  <button
-    style="margin-left: 10px"
-    mat-raised-button
-    *ngIf="(afAuth.authState | async) === null"
-    (click)="auth.loginWithGoogle()"
-    color="accent"
-  >
-    Sign In
-  </button>
-  <button
-    style="margin-left: 10px"
-    *ngIf="afAuth.authState | async"
-    (click)="auth.logout()"
-    mat-raised-button
-    color="primary"
-  >
-    Sign Out
-  </button>
   <div class="row">
-    <div class="text-center">
+    <!-- <div class="text-center">
       <h1>
         Welcome {{ data.username }} <br />
         <div>Channel: {{ data.SelectedIndex }}, {{ data.ChannelName }}</div>
       </h1>
-    </div>
+    </div> -->
     <div class="centre">
       <div class="tv-frame">
         <video #videoPlayer controls autoplay class="w-100 video"></video>
@@ -63,34 +45,28 @@
     Channel: {{ channelIndex || data.SelectedIndex }}
   </div>
 
-  <div class="remote-row">
-    <button class="remote-button">&#8593;</button>
-  </div>
-  <div class="remote-row">
-    <button class="remote-button">&#8592;</button>
-    <button class="remote-button">OK</button>
-    <button class="remote-button">&#8594;</button>
-  </div>
-  <div class="remote-row">
-    <button class="remote-button">&#8595;</button>
-  </div>
-  <div class="remote-row">
-    <button class="remote-button" (click)="increaseVolume()">Vol +</button>
-    <button
-      class="remote-button"
-      (click)="changeChannel(this.selectedIndex + 1, true)"
-    >
-      Ch +
-    </button>
-  </div>
-  <div class="remote-row">
-    <button class="remote-button" (click)="decreaseVolume()">Vol -</button>
-    <button
-      class="remote-button"
-      (click)="changeChannel(this.selectedIndex - 1, true)"
-    >
-      Ch -
-    </button>
+  <div class="row">
+    <div class="remote-row col">
+      <button class="remote-updown up" (click)="increaseVolume()">+</button>
+      <button class="remote-updown center">VOL</button>
+      <button class="remote-updown down" (click)="decreaseVolume()">-</button>
+    </div>
+    <div class="remote-row col">
+      <button
+        class="remote-updown up"
+        (click)="changeChannel(this.selectedIndex + 1, true)"
+      >
+        +
+      </button>
+      <button class="remote-updown center">CN</button>
+
+      <button
+        class="remote-updown down"
+        (click)="changeChannel(this.selectedIndex - 1, true)"
+      >
+        -
+      </button>
+    </div>
   </div>
   <div class="channel-input">
     <div class="number-buttons">
