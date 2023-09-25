@@ -1,0 +1,30 @@
+
+.button {
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+    scrollbar-width: none;
+    border-radius: 10px;
+    width: 100%;
+    padding-left: 3px;
+  }
+  
+  .button a {
+    display: flex;
+    flex-direction: row;
+    gap: 3px;
+    align-items: start;
+    flex-shrink: 0;
+    padding: 11px 10px;
+    background-color: #bbd9e9;
+    opacity: 0.8;
+    transition: opacity 0.3s;
+    border-radius: 10px;
+    width: 90%;
+    cursor: pointer;
+    font-weight: 500;
+  }
+  
+  .button a:hover {
+    opacity: 1;
+  }

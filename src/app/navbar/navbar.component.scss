@@ -60,3 +60,10 @@
   .navbar-item a:hover:before {
     transform: scaleX(1);
   }
+
+@media screen and (max-width: 600px) {
+  *{
+    display: none;
+    background-color:  transparent !important;
+  }
+}

@@ -23,6 +23,7 @@ import { MatRippleModule } from '@angular/material/core';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { NavbarComponent } from './navbar/navbar.component';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
+import { BtnCharthubComponent } from './share-btn/btn-charthub/btn-charthub.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,6 +31,7 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
     RedirectComponent,
     SidenavComponent,
     NavbarComponent,
+    BtnCharthubComponent,
   ],
   imports: [
     BrowserModule,

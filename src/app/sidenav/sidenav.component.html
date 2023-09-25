@@ -1,28 +1,15 @@
 <mat-sidenav-container class="sidenav-container">
   <mat-sidenav #sidenav mode="side" [opened]="!isMobileScreen">
     <div class="logo">
-      <img
-        id="logo-image"
-        [src]="logoSrc"
-        (contextmenu)="disableContextMenu($event)"
-      />
+      <img id="logo-image" [src]="logoSrc" (contextmenu)="disableContextMenu($event)" />
     </div>
     <mat-nav-list>
-      <div class="button">
-        <a matRipple *ngFor="let item of items">
-          <mat-icon>add</mat-icon> {{ item }}
-        </a>
-      </div>
+      <app-btn-charthub [items]="items"></app-btn-charthub>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content class="sidenav-content">
-    <!-- <button mat-icon-button (click)="toggleSidenav()">
-      <mat-icon>{{ isMobileScreen ? 'chevron_right' : 'chevron_left' }}</mat-icon>
-    </button> -->
-    <div class="content">
-      <!-- Your page content here -->
-      <app-navbar></app-navbar>
-      <router-outlet></router-outlet>
-    </div>
+    <!-- Your page content here -->
+    <app-navbar></app-navbar>
+    <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>
