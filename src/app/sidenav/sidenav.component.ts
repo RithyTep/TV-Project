@@ -14,6 +14,7 @@ export class SidenavComponent {
 
   ngOnInit() {
     this.breakpointObserver.observe([Breakpoints.Handset]).subscribe(result => {
+      
       // this.isMobileScreen = result.matches;
       // if (this.isMobileScreen) {
       //   this.sidenav.close();

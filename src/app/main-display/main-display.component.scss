@@ -6,9 +6,10 @@
 }
 
 .channel {
+  padding-top: 16px;
   background-color: #fff;
   margin-left: auto;
-  max-height: calc(100vh - 70px);
+  // max-height: calc(100vh - 70px);
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -17,8 +18,9 @@
     color: #000;
   }
   .btn-channel {
-  padding: 0 10px 10px 10px;
-  overflow: hidden auto;
+    padding: 0 10px 10px 10px;
+    overflow: hidden auto;
+    max-height: calc(100vh - 122px) 
   }
 }
 
@@ -57,6 +59,7 @@
 }
 
 .tv-frame {
+
   min-width: 704px;
   height: 536px;
   background-image: url("/assets/PngItem_1681287.png");
@@ -71,7 +74,7 @@
   top: 7px;
   left: 7px;
   object-fit: fill;
-  width: 98%;
+  width: 98.2%;
   height: 79.4%;
 }
 
@@ -165,7 +168,10 @@
   justify-items: center; /* Center the items horizontally */
   align-items: center; /* Center the items vertically */
 }
-
+.centre{
+  display: block;
+  margin: 50px auto;
+}
 .num {
   width: 100px;
   height: 50px;

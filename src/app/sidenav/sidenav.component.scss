@@ -24,8 +24,6 @@
   transform: rotate(180deg);
 }
 
-
-
 .toggle-button {
   position: absolute;
   top: 10px;
@@ -39,8 +37,8 @@
 }
 
 .sidenav-content {
+  overflow: hidden;
   flex-grow: 1;
-  overflow: auto;
 }
 
 @media screen and (max-width: 600px) {

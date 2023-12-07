@@ -1,6 +1,12 @@
 <nav class="navbar">
   <div class="navbar-logo">
-    <a href="/">Hangmeas HDTV</a>
+    <a href="/"> {{ this.auth.userDataAuth?.displayName }}</a>
+    <img
+      class="wtf"
+      *ngIf="this.auth?.userDataAuth"
+      src="{{ this.auth?.userDataAuth?.photoURL }}"
+      alt=""
+    />
   </div>
   <ul class="navbar-menu">
     <li class="navbar-item">
@@ -16,7 +22,7 @@
   <ul class="navbar-auth">
     <li class="navbar-item">
       <button
-      mat-flat-button
+        mat-flat-button
         color="accent"
         *ngIf="(afAuth.authState | async) === null"
         (click)="auth.loginWithGoogle()"
