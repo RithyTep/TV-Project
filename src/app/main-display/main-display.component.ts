@@ -75,7 +75,7 @@ export class MainDisplayComponent implements AfterViewInit {
 
     if (user) {
       const username = user.displayName;
-console.log('username',user)
+      console.log('username', user);
       const data = {
         SelectedIndex: selectedIndex,
         ChannelName: channelName,
@@ -243,21 +243,11 @@ console.log('username',user)
   }
 
   playChannel(channelUrl: string) {
-    if (channelUrl.startsWith('blob:')) {
-      fetch(channelUrl)
-        .then((response) => response.blob())
-        .then((blob) => {
-          const url = URL.createObjectURL(blob);
-          this.videoplayer.nativeElement.src = url;
-          this.videoplayer.nativeElement.play();
-        });
-    } else {
       this.hls.loadSource(channelUrl);
       this.hls.attachMedia(this.videoplayer.nativeElement);
       this.hls.on(Hls.Events.MANIFEST_PARSED, () => {
         this.videoplayer.nativeElement.play();
       });
-    }
   }
 
   changeChannel(index: number, isLocal: boolean) {
