@@ -20,7 +20,7 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 
 interface FirestoreData {
   SelectedIndex: number;
-  ChannelName: string;
+  // ChannelName: string;
   IncreaseVolume: number;
   DecreaseVolume: number;
   key: string;
@@ -79,10 +79,12 @@ export class MainDisplayComponent implements AfterViewInit {
       const data = {
         SelectedIndex: selectedIndex,
         ChannelName: channelName,
-        IncreaseVolume:
-          this.volumeLevel < 1 ? this.volumeLevel + 0.1 : this.volumeLevel,
-        DecreaseVolume:
-          this.volumeLevel > 0 ? this.volumeLevel - 0.1 : this.volumeLevel,
+        IncreaseVolume: 30,
+        DecreaseVolume: 30,
+        //   IncreaseVolume:
+        //   this.volumeLevel < 1 ? this.volumeLevel + 0.1 : this.volumeLevel,
+        // DecreaseVolume:
+        //   this.volumeLevel > 0 ? this.volumeLevel - 0.1 : this.volumeLevel,
         key: '',
         username: username,
       };
@@ -101,13 +103,13 @@ export class MainDisplayComponent implements AfterViewInit {
         })
         .catch((error) => {});
 
-      this.unsubscribe = onSnapshot(this.documentRef, (doc) => {
-        const data = doc.data() as FirestoreData;
-        if (data) {
-          const selectedIndex = data.SelectedIndex;
-          this.router.navigate(['/display', data.ChannelName, selectedIndex]);
-        }
-      });
+      // this.unsubscribe = onSnapshot(this.documentRef, (doc) => {
+      //   const data = doc.data() as FirestoreData;
+      //   if (data) {
+      //     const selectedIndex = data.SelectedIndex;
+      //     this.router.navigate(['/display', data.ChannelName, selectedIndex]);
+      //   }
+      // });
       return docRef;
     }
     throw new Error('User is not authenticated.');
@@ -125,15 +127,15 @@ export class MainDisplayComponent implements AfterViewInit {
             .doc(this.userData?.uid)
             .valueChanges()
             .subscribe((data: any) => {
-              if (data && data.ChannelName) {
-                const channelName = data.ChannelName;
-                this.selectedIndex = data.SelectedIndex || 0;
-                this.router.navigate([
-                  '/display',
-                  channelName,
-                  this.selectedIndex,
-                ]);
-              }
+              // if (data && data.ChannelName) {
+              //   const channelName = data.ChannelName;
+              //   this.selectedIndex = data.SelectedIndex || 0;
+              //   this.router.navigate([
+              //     '/display',
+              //     channelName,
+              //     this.selectedIndex,
+              //   ]);
+              // }
             });
           console.log(
             'User is authenticated',
@@ -153,7 +155,7 @@ export class MainDisplayComponent implements AfterViewInit {
         userDoc.valueChanges().subscribe((data: FirestoreData | undefined) => {
           const {
             SelectedIndex = 0,
-            ChannelName = '',
+            // ChannelName = '',
             IncreaseVolume = 0,
             DecreaseVolume = 0,
             key = '',
@@ -162,7 +164,7 @@ export class MainDisplayComponent implements AfterViewInit {
 
           this.data = {
             SelectedIndex,
-            ChannelName,
+            // ChannelName,
             IncreaseVolume,
             DecreaseVolume,
             key,
@@ -172,7 +174,7 @@ export class MainDisplayComponent implements AfterViewInit {
       } else {
         this.data = {
           SelectedIndex: 0,
-          ChannelName: '',
+          // ChannelName: '',
           IncreaseVolume: 0,
           DecreaseVolume: 0,
           key: '',
@@ -243,11 +245,11 @@ export class MainDisplayComponent implements AfterViewInit {
   }
 
   playChannel(channelUrl: string) {
-      this.hls.loadSource(channelUrl);
-      this.hls.attachMedia(this.videoplayer.nativeElement);
-      this.hls.on(Hls.Events.MANIFEST_PARSED, () => {
-        this.videoplayer.nativeElement.play();
-      });
+    this.hls.loadSource(channelUrl);
+    this.hls.attachMedia(this.videoplayer.nativeElement);
+    this.hls.on(Hls.Events.MANIFEST_PARSED, () => {
+      this.videoplayer.nativeElement.play();
+    });
   }
 
   changeChannel(index: number, isLocal: boolean) {

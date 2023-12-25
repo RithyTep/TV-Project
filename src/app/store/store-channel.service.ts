@@ -75,10 +75,29 @@ export class StoreChannelService {
       name: 'Netlink TV',
       url: 'https://netlink.netlinkbroadcaster.com/hls/test.m3u8',
     },
-    {
-      name: 'العربية',
-      url: ' https://rt-arb.rttv.com/dvr/rtarab/playlist.m3u8',
-    },
+    // {
+    //   name: 'MBC TV',
+    //   url: 'http://123.254.72.24:1935/tvlive/livestream2/playlist.m3u8',
+    // },
+
+    // {
+    //   name: 'TJB TV',
+    //   url: 'http://1.245.74.5:1935/live/tv/.m3u8',
+    // },
+    // {
+    //   name: 'UBC TV',
+    //   url: 'http://59.23.231.102:1935/live/UBCstream/playlist.m3u8',
+    // },
+
+    // {
+    //   name: 'CJB TV',
+    //   url: 'http://1.222.207.80:1935/live/cjbtv/playlist.m3u8',
+    // },
+    // {
+    //   name: 'JIBS TV',
+    //   url: 'http://123.140.197.22/stream/1/play.m3u8',
+    // },
+
     {
       name: 'Kanali 7 Ⓢ',
       url: 'https://fe.tring.al/delta/105/out/u/1200_1.m3u8',
@@ -101,10 +120,10 @@ export class StoreChannelService {
       name: 'Ora News',
       url: 'https://live1.mediadesk.al/oranews.m3u8',
     },
-    {
-      name: 'Panorama TV Ⓢ',
-      url: 'http://198.244.188.94/panorama/livestream/playlist.m3u8',
-    },
+    // {
+    //   name: 'Panorama TV Ⓢ',
+    //   url: 'http://198.244.188.94/panorama/livestream/playlist.m3u8',
+    // },
     {
       name: 'Report TV',
       url: 'https://deb10stream.duckdns.org/hls/stream.m3u8',
@@ -165,33 +184,11 @@ export class StoreChannelService {
       name: 'TV BRICS Chinese',
       url: 'https://brics.bonus-tv.ru/cdn/brics/chinese/playlist.m3u8',
     },
-    {
-      name: 'MBC TV',
-      url: 'http://123.254.72.24:1935/tvlive/livestream2/playlist.m3u8',
-    },
 
-    {
-      name: 'TJB TV',
-      url: 'http://1.245.74.5:1935/live/tv/.m3u8',
-    },
-    {
-      name: 'UBC TV',
-      url: 'http://59.23.231.102:1935/live/UBCstream/playlist.m3u8',
-    },
-
-    {
-      name: 'CJB TV',
-      url: 'http://1.222.207.80:1935/live/cjbtv/playlist.m3u8',
-    },
-    {
-      name: 'JIBS TV',
-      url: 'http://123.140.197.22/stream/1/play.m3u8',
-    },
-
-    {
-      name: 'Arirang',
-      url: 'http://amdlive.ctnd.com.edgesuite.net/arirang_1ch/smil:arirang_1ch.smil/playlist.m3u8',
-    },
+    // {
+    //   name: 'Arirang',
+    //   url: 'http://amdlive.ctnd.com.edgesuite.net/arirang_1ch/smil:arirang_1ch.smil/playlist.m3u8',
+    // },
 
     {
       name: 'ABC News',
@@ -201,14 +198,54 @@ export class StoreChannelService {
       name: 'CBS News',
       url: 'https://cbsnews.akamaized.net/hls/live/2020607/cbsnlineup_8/master.m3u8',
     },
-    {
-      name: 'NBC News',
-      url: 'http://dai2.xumo.com/xumocdn/p=roku/amagi_hls_data_xumo1212A-xumo-nbcnewsnow/CDN/playlist.m3u8',
-    },
+    // {
+    //   name: 'NBC News',
+    //   url: 'http://dai2.xumo.com/xumocdn/p=roku/amagi_hls_data_xumo1212A-xumo-nbcnewsnow/CDN/playlist.m3u8',
+    // },
     {
       name: 'Reuters TV',
       url: 'https://reuters-reutersnow-1-eu.rakuten.wurl.tv/playlist.m3u8',
     },
+    {
+      name: 'Spacetoon',
+      url: 'https://streams.spacetoon.com/live/stchannel/smil:livesmil.smil/playlist.m3u8',
+    },
+    {
+      name: 'Cartoon Network',
+      url: 'https://playout.cdn.cartoonnetwork.com.br/playout_02/playlist-720p.m3u8',
+    },
+    {
+      name: '4Fun TV',
+      url: 'https://stream.4fun.tv:8888/hls/4f_high/index.m3u8',
+    },
+    {
+      name: 'Desi',
+      url: 'https://live.wmncdn.net/desichannel/7e2dd0aed46b70a5c77f4affdb702e4b.sdp/mono.m3u8',
+    },
+    {
+      name: 'Dove',
+      url: 'https://dai.google.com/linear/hls/event/dfbBGQhPQQqypdEAjpUGlA/master.m3u8',
+    },
+    {
+      name: 'zindagitv',
+      url: 'https://5ad386ff92705.streamlock.net/live_transcoder/ngrp:zindagitv.stream_all/chunklist.m3u8',
+    },
+    {
+      name: 'Battery Pop',
+      url: 'https://dai2.xumo.com/xumocdn/p=redbox&deviceid=&is_lat=&subp=RedboxdesktopWebWindows/amagi_hls_data_xumo1212A-redboxbatterypop/CDN/1280x720_5000000/index.m3u8',
+    },
+    {
+      name: 'Pocket watch',
+      url: 'https://dai2.xumo.com/amagi_hls_data_xumo1212A-xumo-pocket-watch/CDN/master.m3u8',
+    },
+    // {
+    //   name: ' NASA TV',
+    //   url: 'http://iphone-streaming.ustream.tv/uhls/6540154/streams/live/iphone/playlist.m3u8',
+    // },
+    // {
+    //   name: 'NASA TV Media channel',
+    //   url: 'http://iphone-streaming.ustream.tv/uhls/10414700/streams/live/iphone/playlist.m3u8',
+    // },
   ];
 
   globalChannels: { name: string; url: string }[] = [

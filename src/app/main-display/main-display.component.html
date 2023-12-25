@@ -12,20 +12,20 @@
       </div>
     </div>
     <div class="channel">
-      <h2 >Local Channels</h2>
+      <h2>Channels</h2>
       <div class="btn-channel">
         <div
-        class="button"
-        *ngFor="let channel of store.localChannels; let i = index"
-      >
-        <a
-          matRipple
-          [class.active]="activeLocalChannel === i"
-          (click)="createCollection(i, channel.name); changeChannel(i, true)"
+          class="button"
+          *ngFor="let channel of store.localChannels; let i = index"
         >
-          {{ i }}. {{ channel.name }}
-        </a>
-      </div>
+          <a
+            matRipple
+            [class.active]="activeLocalChannel === i"
+            (click)="createCollection(i, channel.name); changeChannel(i, true)"
+          >
+            {{ i }}. {{ channel.name }}
+          </a>
+        </div>
       </div>
 
       <!-- <div class="channel">
@@ -44,46 +44,47 @@
   </div>
 </div>
 
-  <div class="remote-control">
-    <p class="title-remote">THY SMART TV</p>
-    <p class="title-remote">[THY] webOS TV {{ data.key }}</p>
-    <div class="volume-display">Volume: {{ volumeLevel }}</div>
-    <div class="number-display">
-      Channel: {{ channelIndex || data.SelectedIndex }}
-    </div>
+<div class="remote-control">
+  <p class="title-remote">THY SMART TV</p>
+  <p class="title-remote">[THY] webOS TV {{ data.key }}</p>
+  <div class="volume-display">Volume: {{ volumeLevel }}</div>
+  <div class="number-display">
+    Channel: {{ channelIndex || data.SelectedIndex }}
+  </div>
 
-    <div class="row">
-      <div class="remote-row col">
-        <button class="remote-updown up" (click)="increaseVolume()">+</button>
-        <button class="remote-updown center">VOL</button>
-        <button class="remote-updown down" (click)="decreaseVolume()">-</button>
-      </div>
-      <div class="remote-row col">
-        <button
-          class="remote-updown up"
-          (click)="changeChannel(this.selectedIndex + 1, true)"
-        >
-          +
-        </button>
-        <button class="remote-updown center">CN</button>
+  <div class="row">
+    <div class="remote-row col">
+      <button class="remote-updown up" (click)="increaseVolume()">+</button>
+      <button class="remote-updown center">VOL</button>
+      <button class="remote-updown down" (click)="decreaseVolume()">-</button>
+    </div>
+    <div class="remote-row col">
+      <button
+        class="remote-updown up"
+        (click)="changeChannel(this.selectedIndex + 1, true)"
+      >
+        +
+      </button>
+      <button class="remote-updown center">CN</button>
 
-        <button
-          class="remote-updown down"
-          (click)="changeChannel(this.selectedIndex - 1, true)"
-        >
-          -
-        </button>
-      </div>
+      <button
+        class="remote-updown down"
+        (click)="changeChannel(this.selectedIndex - 1, true)"
+      >
+        -
+      </button>
     </div>
-    <div class="channel-input">
-      <div class="number-buttons">
-        <button
-          class="num"
-          *ngFor="let num of [1, 2, 3, 4, 5, 6, 7, 8, 9]"
-          (click)="updateChannelIndex(num)"
-        >
-          {{ num }}
-        </button>
-        <button class="num zero" (click)="updateChannelIndex(0)">0</button>
-      </div>
+  </div>
+  <div class="channel-input">
+    <div class="number-buttons">
+      <button
+        class="num"
+        *ngFor="let num of [1, 2, 3, 4, 5, 6, 7, 8, 9]"
+        (click)="updateChannelIndex(num)"
+      >
+        {{ num }}
+      </button>
+      <button class="num zero" (click)="updateChannelIndex(0)">0</button>
     </div>
+  </div>
+</div>
