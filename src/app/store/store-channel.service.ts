@@ -19,6 +19,14 @@ export class StoreChannelService {
       name: 'TVK2',
       url: 'https://live.kh.malimarcdn.com/live/tvk2.stream/playlist.m3u8',
     },
+    {
+      name: 'SeaTV',
+      url: 'https://seatv.netlinkbroadcaster.com/hls/test.m3u8',
+    },
+    {
+      name: 'SeaTV Radio',
+      url: 'https://fmseatv.netlinkbroadcaster.com/hls/test.m3u8',
+    },   
     // {
     //   name: 'TV5',
     //   url: 'http://203.176.130.123:8989/live/tv5_480k.stream/playlist.m3u8',
@@ -71,10 +79,8 @@ export class StoreChannelService {
     //   name: 'MSJ TV',
     //   url: 'http://124.248.165.18:1935/live/myStream.smil/chunklist_w1860765658_b2260000_sleng.m3u8',
     // },
-    {
-      name: 'Netlink TV',
-      url: 'https://netlink.netlinkbroadcaster.com/hls/test.m3u8',
-    },
+ 
+
     // {
     //   name: 'MBC TV',
     //   url: 'http://123.254.72.24:1935/tvlive/livestream2/playlist.m3u8',
@@ -99,7 +105,7 @@ export class StoreChannelService {
     // },
 
     {
-      name: 'Kanali 7 Ⓢ',
+      name: 'Kanali 7',
       url: 'https://fe.tring.al/delta/105/out/u/1200_1.m3u8',
     },
 
@@ -231,21 +237,22 @@ export class StoreChannelService {
       url: 'https://5ad386ff92705.streamlock.net/live_transcoder/ngrp:zindagitv.stream_all/chunklist.m3u8',
     },
     {
-      name: 'Battery Pop',
-      url: 'https://dai2.xumo.com/xumocdn/p=redbox&deviceid=&is_lat=&subp=RedboxdesktopWebWindows/amagi_hls_data_xumo1212A-redboxbatterypop/CDN/1280x720_5000000/index.m3u8',
-    },
-    {
       name: 'Pocket watch',
       url: 'https://dai2.xumo.com/amagi_hls_data_xumo1212A-xumo-pocket-watch/CDN/master.m3u8',
     },
-    // {
-    //   name: ' NASA TV',
-    //   url: 'http://iphone-streaming.ustream.tv/uhls/6540154/streams/live/iphone/playlist.m3u8',
-    // },
-    // {
-    //   name: 'NASA TV Media channel',
-    //   url: 'http://iphone-streaming.ustream.tv/uhls/10414700/streams/live/iphone/playlist.m3u8',
-    // },
+    {
+      name: ' Cartoon Nitro',
+      url: 'https://playout.cdn.cartoonnetwork.com.br/playout_04/playlist.m3u8',
+    },
+    {
+      name: 'ANTD',
+      url: 'https://liveh34.vtvcab.vn/hls/ONANTV_CL/04.m3u8',
+    },
+  
+    {
+      name: '2',
+      url: 'https://wzorigin.teroradio.com/Tofu/Tofu-Webcam1/playlist.m3u8',
+    },
   ];
 
   globalChannels: { name: string; url: string }[] = [
@@ -274,7 +281,7 @@ export class StoreChannelService {
       url: 'http://stream.rs.co.th/ch8-hi/index.m3u8',
     },
     {
-      name: 'MCOT-HD',
+      name: 'MCOT HD',
       url: 'http://27.254.130.64/feed/chmcothd/playlist.m3u8',
     },
     {

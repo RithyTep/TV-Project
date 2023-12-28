@@ -4,6 +4,7 @@ import { AppComponent } from './app.component';
 import { MainDisplayComponent } from './main-display/main-display.component';
 import { RedirectComponent } from './redirect-component/redirect-component.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
+import { TestComponent } from './test/test.component';
 
 const routes: Routes = [
   {
@@ -14,15 +15,26 @@ const routes: Routes = [
       {
         path: '',
         component: SidenavComponent,
+        // children: [
+        //   {
+        //     path: '',
+        //     redirectTo: 'display/default-channel/draftChannel',
+        //     pathMatch: 'full',
+        //   },
+        //   {
+        //     path: 'display/:channelName/:index',
+        //     component: MainDisplayComponent,
+        //   },
+        // ],
         children: [
           {
             path: '',
-            redirectTo: 'display/default-channel/draftChannel',
+            redirectTo: 'test',
             pathMatch: 'full',
           },
           {
-            path: 'display/:channelName/:index',
-            component: MainDisplayComponent,
+            path: 'test',
+            component: TestComponent,
           },
         ],
       },

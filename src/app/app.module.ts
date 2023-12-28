@@ -12,7 +12,7 @@ import { provideFirestore, getFirestore } from '@angular/fire/firestore';
 import { provideStorage, getStorage } from '@angular/fire/storage';
 import { getFunctions, provideFunctions } from '@angular/fire/functions';
 import { getApp, initializeApp, provideFirebaseApp } from '@angular/fire/app';
-import { environment } from 'src/environments/environment';
+
 import { RedirectComponent } from './redirect-component/redirect-component.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -24,6 +24,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { NavbarComponent } from './navbar/navbar.component';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { BtnCharthubComponent } from './share-btn/btn-charthub/btn-charthub.component';
+import { TestComponent } from './test/test.component';
+import { environment } from 'src/environments/environment';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,6 +34,7 @@ import { BtnCharthubComponent } from './share-btn/btn-charthub/btn-charthub.comp
     SidenavComponent,
     NavbarComponent,
     BtnCharthubComponent,
+    TestComponent,
   ],
   imports: [
     BrowserModule,

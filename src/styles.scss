@@ -10,3 +10,17 @@ body {
   padding: 0;
   box-sizing: border-box;
 }
+@font-face {
+  font-family: 'KhmerOS Siemreap';
+  src: url('./assets/fonts/khmeros_siemreap.woff') format('woff');
+  /* Add other font properties if needed */
+}
+@font-face {
+  font-family: "Battambang";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Battambang Regular"), local("Battambang-Regular"),
+    url(https://fonts.gstatic.com/s/battambang/v13/uk-mEGe7raEw-HjkzZabPnmp4g5y_o5z7Q.woff2)
+      format("woff2");
+  unicode-range: U+1780-17FF, U+200C, U+25CC;
+}
