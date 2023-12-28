@@ -7,7 +7,9 @@ import data from './moj-report.json';
   styleUrls: ['./test.component.scss'],
 })
 export class TestComponent {
-  constructor(){
-    console.log()
+  selectedOperations: any;
+  data: any;
+  constructor() {
+    this.data = data;
   }
 }

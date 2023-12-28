@@ -1,3 +1,46 @@
 <div class="container">
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet id veritatis numquam officiis omnis facilis, quidem quasi quibusdam repudiandae facere exercitationem doloremque, accusamus blanditiis saepe iusto? Aperiam vero assumenda perspiciatis, quisquam aut nisi numquam? Optio itaque, laborum a quia iure expedita cupiditate molestiae distinctio, porro veniam nisi. Laborum, officia? Id veniam nemo nulla distinctio ullam. Commodi quasi maiores dolor voluptatum neque! Atque, non. Fugit rerum nesciunt eos minus quibusdam eaque eveniet quae molestiae laudantium! Sed similique libero ex ab cumque atque commodi molestiae animi id possimus, voluptates veritatis ratione! A molestias molestiae laborum dolor sequi necessitatibus magnam corrupti ipsum debitis?
+  <div>
+    <h2>Criminal Languages:</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Name (English)</th>
+          <th>Day20</th>
+          <th>Day12</th>
+          <th>khmer</th>
+          <th>English</th>
+          <th>Fr</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let language of data">
+          <td>{{ language.last_name }} {{ language.first_name }}</td>
+          <td>{{ language.criminal_language.name }}</td>
+          <td *ngIf="language?.urgent_obj?.key === 20">
+            {{ language.urgent_obj.name }}
+          </td>
+          <td *ngIf="language?.urgent_obj?.key !== 20"></td>
+          <td *ngIf="language?.urgent_obj?.key === 12">
+            {{ language.urgent_obj.name }}
+          </td>
+          <td *ngIf="language?.urgent_obj?.key !== 12"></td>
+          <td *ngIf="language?.criminal_language?.key === 1">
+            {{ language.criminal_language.name_en }}
+          </td>
+          <td *ngIf="language?.criminal_language?.key !== 1"></td>
+
+          <td *ngIf="language?.criminal_language?.key === 2">
+            {{ language.criminal_language.name_en }}
+          </td>
+          <td *ngIf="language?.criminal_language?.key !== 2"></td>
+
+          <td *ngIf="language?.criminal_language?.key === 3">
+            {{ language.criminal_language.name_en }}
+          </td>
+          <td *ngIf="language?.criminal_language?.key !== 3"></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
