@@ -8,25 +8,32 @@
           <th>Day20</th>
           <th>Day12</th>
           <th>Nationality</th>
+          <th>Khmer</th>
+          <th>English</th>
+          <th>French</th>
         </tr>
       </thead>
       <tbody>
-        <ng-container *ngFor="let d20T of D20T; let i = index">
+        <!-- <ng-container *ngFor="let d20T of d20Arr; let i = index">
           <tr>
             <td>{{ i + 1 }}</td>
             <td>{{ d20T.last_name }} {{ d20T.first_name }}</td>
             <td>{{ d20T.criminal_language.name }}</td>
             <td>{{ d20T.urgent_obj.name }}</td>
             <td>{{ d20T.national_application?.name_en }}</td>
+
           </tr>
-        </ng-container>
-        <ng-container *ngFor="let d12T of D12T; let i = index">
+        </ng-container> -->
+        <ng-container *ngFor="let item of combinedData; let i = index">
           <tr>
             <td>{{ i + 1 }}</td>
-            <td>{{ d12T.last_name }} {{ d12T.first_name }}</td>
-            <td>{{ d12T.criminal_language.name }}</td>
-            <td>{{ d12T.urgent_obj.name }}</td>
-            <td>{{ d12T.national_application?.name_en }}</td>
+            <td>{{ item.last_name }} {{ item.first_name }}</td>
+            <td></td>
+            <td>{{ item.urgent_obj.name }}</td>
+            <td>{{ item.national_application?.name_en }}</td>
+            <td>{{ getCriminalLanguageKey(item, 'khmer') }}</td>
+            <td>{{ getCriminalLanguageKey(item, 'english') }}</td>
+            <td>{{ getCriminalLanguageKey(item, 'french') }}</td>
           </tr>
         </ng-container>
       </tbody>

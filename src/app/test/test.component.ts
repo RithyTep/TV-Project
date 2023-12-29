@@ -7,33 +7,99 @@ import data from './moj-report.json';
   styleUrls: ['./test.component.scss'],
 })
 export class TestComponent {
-  selectedOperations: any;
   data: any;
-  D20T: any;
-  D12T: any;
-  foreignerArrayD20T: any;
-  foreignerArrayD12T: any;
+  combinedData: any[] = [];
 
   constructor() {
     this.data = data;
-    this.D20T = this.data
-      .filter((item: any) => item.urgent_obj?.key === 20)
-      .map((item: { national_application: { key: string } }) => ({
-        ...item,
-        national_application:
-          item.national_application?.key === 'foreigner'
-            ? item.national_application
-            : null,
-      }));
 
-    this.D12T = this.data
-      .filter((item: any) => item.urgent_obj?.key === 12)
-      .map((item: { national_application: { key: string } }) => ({
-        ...item,
-        national_application:
-          item.national_application?.key === 'foreigner'
-            ? item.national_application
-            : null,
-      }));
+    const d20 = this.data.filter((item: any) => item.urgent_obj?.key === 20);
+
+    const d20Stu = d20.filter((item: any) => item?.isStudent);
+    const d20nStu = d20.filter((item: any) => !item?.isStudent);
+
+    const d20StuFor = d20Stu.filter(
+      (item: any) => item?.national_application?.key === 'foreigner'
+    );
+    const d20StuKh = d20Stu.filter(
+      (item: any) => item?.national_application?.key === 'khmer'
+    );
+
+    const d20nStuFor = d20nStu.filter(
+      (item: any) => item?.national_application?.key !== 'foreigner'
+    );
+    const d20nStuKh = d20nStu.filter(
+      (item: any) => item?.national_application?.key !== 'khmer'
+    );
+
+    
+    //T00
+    const d20StuForFr = d20StuFor.filter((item: any) =>
+      item?.criminal_language?.find((f: any) => f?.key === 2)
+    );
+    const d20StuFornFr = d20nStuFor.filter((item: any) =>
+      item?.criminal_language?.find((f: any) => f?.key !== 2)
+    );
+
+    const d20StuForFrEn = d20StuForFr.filter((item: any) =>
+      item?.criminal_language?.find((f: any) => f?.key === 3)
+    );
+    const d20StuForFrnEn = d20StuForFr.filter((item: any) =>
+      item?.criminal_language?.find((f: any) => f?.key !== 3)
+    );
+    const d20StuFornFrEn = d20StuFornFr.filter((item: any) =>
+      item?.criminal_language?.find((f: any) => f?.key === 3)
+    );
+    const d20StuFornFrnEn = d20StuFornFr.filter((item: any) =>
+      item?.criminal_language?.find((f: any) => f?.key !== 3)
+    );
+
+    //T01
+    const d20StuKhFr = d20StuFor.filter((item: any) =>
+      item?.criminal_language?.find((f: any) => f?.key === 2)
+    );
+    const d20StuKhnFr = d20nStuFor.filter((item: any) =>
+      item?.criminal_language?.find((f: any) => f?.key !== 2)
+    );
+
+    const d20StuKhFrEn = d20StuForFr.filter((item: any) =>
+      item?.criminal_language?.find((f: any) => f?.key === 3)
+    );
+    const d20StuKhFrnEn = d20StuForFr.filter((item: any) =>
+      item?.criminal_language?.find((f: any) => f?.key !== 3)
+    );
+    const d20StuKhnFrEn = d20StuFornFr.filter((item: any) =>
+      item?.criminal_language?.find((f: any) => f?.key === 3)
+    );
+    const d20StuKhnFrnEn = d20StuFornFr.filter((item: any) =>
+      item?.criminal_language?.find((f: any) => f?.key !== 3)
+    );
+    this.combinedData = this.combinedData.concat(
+      d20,
+      d20Stu,
+      d20nStu,
+      d20nStuFor,
+      d20nStuKh,
+      d20StuFor,
+      d20StuKh,
+      d20StuForFr,
+      d20StuFornFr,
+      d20StuForFrEn,
+      d20StuForFrnEn,
+      d20StuFornFrEn,
+      d20StuFornFrnEn
+    );
   }
+  getCriminalLanguageKey(item: any, languageKey: string): string {
+    const criminalLanguage = item?.criminal_language?.find(
+      (lang: any) => lang.name_en.toLowerCase() === languageKey
+    );
+    return criminalLanguage?.name_en.toLowerCase() || '';
+  }
+  // getCriminalLanguageName(item: any, languageKey: string): string {
+  //   const criminalLanguage = item?.criminal_language?.find(
+  //     (lang: any) => lang.name_en.toLowerCase() === languageKey
+  //   );
+  //   return criminalLanguage?.name_en || '';
+  // }
 }
