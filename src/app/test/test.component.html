@@ -1,45 +1,34 @@
 <div class="container">
   <div>
-    <h2>Criminal Languages:</h2>
     <table>
       <thead>
         <tr>
+          <th>#</th>
           <th>Name</th>
-          <th>Name (English)</th>
           <th>Day20</th>
           <th>Day12</th>
-          <th>khmer</th>
-          <th>English</th>
-          <th>Fr</th>
+          <th>Nationality</th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let language of data">
-          <td>{{ language.last_name }} {{ language.first_name }}</td>
-          <td>{{ language.criminal_language.name }}</td>
-          <td *ngIf="language?.urgent_obj?.key === 20">
-            {{ language.urgent_obj.name }}
-          </td>
-          <td *ngIf="language?.urgent_obj?.key !== 20"></td>
-          <td *ngIf="language?.urgent_obj?.key === 12">
-            {{ language.urgent_obj.name }}
-          </td>
-          <td *ngIf="language?.urgent_obj?.key !== 12"></td>
-          <td *ngIf="language?.criminal_language?.key === 1">
-            {{ language.criminal_language.name_en }}
-          </td>
-          <td *ngIf="language?.criminal_language?.key !== 1"></td>
-
-          <td *ngIf="language?.criminal_language?.key === 2">
-            {{ language.criminal_language.name_en }}
-          </td>
-          <td *ngIf="language?.criminal_language?.key !== 2"></td>
-
-          <td *ngIf="language?.criminal_language?.key === 3">
-            {{ language.criminal_language.name_en }}
-          </td>
-          <td *ngIf="language?.criminal_language?.key !== 3"></td>
-        </tr>
+        <ng-container *ngFor="let d20T of D20T; let i = index">
+          <tr>
+            <td>{{ i + 1 }}</td>
+            <td>{{ d20T.last_name }} {{ d20T.first_name }}</td>
+            <td>{{ d20T.criminal_language.name }}</td>
+            <td>{{ d20T.urgent_obj.name }}</td>
+            <td>{{ d20T.national_application?.name_en }}</td>
+          </tr>
+        </ng-container>
+        <ng-container *ngFor="let d12T of D12T; let i = index">
+          <tr>
+            <td>{{ i + 1 }}</td>
+            <td>{{ d12T.last_name }} {{ d12T.first_name }}</td>
+            <td>{{ d12T.criminal_language.name }}</td>
+            <td>{{ d12T.urgent_obj.name }}</td>
+            <td>{{ d12T.national_application?.name_en }}</td>
+          </tr>
+        </ng-container>
       </tbody>
     </table>
   </div>
