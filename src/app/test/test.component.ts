@@ -37,7 +37,7 @@ export class TestComponent {
     const d20StuForFr = d20StuFor.filter((item: any) =>
       item?.criminal_language?.find((f: any) => f?.key === 2)
     );
-    const d20StuFornFr = d20nStuFor.filter((item: any) =>
+    const d20StuFornFr = d20StuFor.filter((item: any) =>
       item?.criminal_language?.find((f: any) => f?.key !== 2)
     );
 
@@ -48,30 +48,30 @@ export class TestComponent {
       item?.criminal_language?.find((f: any) => f?.key !== 3)
     );
     const d20StuFornFrEn = d20StuFornFr.filter((item: any) =>
-      item?.criminal_language?.find((f: any) => f?.key === 3)
-    );
-    const d20StuFornFrnEn = d20StuFornFr.filter((item: any) =>
-      item?.criminal_language?.find((f: any) => f?.key !== 3)
-    );
-
-    //T01
-    const d20StuKhFr = d20StuFor.filter((item: any) =>
       item?.criminal_language?.find((f: any) => f?.key === 2)
     );
-    const d20StuKhnFr = d20nStuFor.filter((item: any) =>
+    const d20StuFornFrnEn = d20StuFornFr.filter((item: any) =>
       item?.criminal_language?.find((f: any) => f?.key !== 2)
     );
 
-    const d20StuKhFrEn = d20StuForFr.filter((item: any) =>
+    //T01
+    const d20StuKhFr = d20StuKh.filter((item: any) =>
+      item?.criminal_language?.find((f: any) => f?.key === 2)
+    );
+    const d20StuKhnFr = d20nStuKh.filter((item: any) =>
+      item?.criminal_language?.find((f: any) => f?.key !== 2)
+    );
+
+    const d20StuKhFrEn = d20StuKhFr.filter((item: any) =>
       item?.criminal_language?.find((f: any) => f?.key === 3)
     );
-    const d20StuKhFrnEn = d20StuForFr.filter((item: any) =>
+    const d20StuKhFrnEn = d20StuKhFr.filter((item: any) =>
       item?.criminal_language?.find((f: any) => f?.key !== 3)
     );
-    const d20StuKhnFrEn = d20StuFornFr.filter((item: any) =>
+    const d20StuKhnFrEn = d20StuKhnFr.filter((item: any) =>
       item?.criminal_language?.find((f: any) => f?.key === 3)
     );
-    const d20StuKhnFrnEn = d20StuFornFr.filter((item: any) =>
+    const d20StuKhnFrnEn = d20StuKhnFr.filter((item: any) =>
       item?.criminal_language?.find((f: any) => f?.key !== 3)
     );
     this.combinedData = this.combinedData.concat(
@@ -87,7 +87,15 @@ export class TestComponent {
       d20StuForFrEn,
       d20StuForFrnEn,
       d20StuFornFrEn,
-      d20StuFornFrnEn
+      d20StuFornFrnEn,
+
+      d20StuKhFr,
+      d20StuKhnFr,
+      d20StuKhFrEn,
+      d20StuKhFrnEn,
+      d20StuKhnFrEn,
+      d20StuKhnFrnEn,
+
     );
   }
   getCriminalLanguageKey(item: any, languageKey: string): string {
