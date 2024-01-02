@@ -26,6 +26,8 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { BtnCharthubComponent } from './share-btn/btn-charthub/btn-charthub.component';
 import { TestComponent } from './test/test.component';
 import { environment } from 'src/environments/environment';
+import { DialogAlertComponent } from './dialog-alert/dialog-alert.component';
+import { MatDialogModule } from '@angular/material/dialog';
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,8 +37,11 @@ import { environment } from 'src/environments/environment';
     NavbarComponent,
     BtnCharthubComponent,
     TestComponent,
+    DialogAlertComponent,
+    
   ],
   imports: [
+    MatDialogModule,
     BrowserModule,
     AppRoutingModule,
     MatButtonModule,

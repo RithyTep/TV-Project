@@ -7,7 +7,7 @@
 }
 
 .channel {
-  padding-top: 16px;
+  padding-top: 14px;
   background-color: #fff;
   margin-left: auto;
   z-index: 99;
@@ -38,6 +38,7 @@
   display: flex;
   flex-direction: row;
   gap: 3px;
+  text-align: start;
   align-items: flex-start; /* Updated value */
   flex-shrink: 0;
   padding: 11px 10px;
@@ -99,6 +100,7 @@
 }
 
 .row {
+  overflow: hidden;
   display: flex;
 }
 
@@ -256,27 +258,14 @@
   }
 }
 
-.img-arrow {
-  margin-top: 100px;
-  @media (max-width: 1000px) {
-    display: none;
-  }
-  img {
-    width: 100px;
-    margin: auto;
-  }
-  img:last-child {
-    width: 60px;
-    margin: auto;
-  }
-}
+
 $appFont: Roboto, Open Sans, Helvetica Neue, Helvetica, "Hanuman", "auxswot",
   "Battambang", "khmeros_siemreap", "Roboto Bold English", Arial, sans-serif;
 
 #clock {
-  color: #ffd700;
+  color: #fff;
   display: inline;
-  font-size: 25px;
+  font-size: 14px;
   padding: 10px;
   left: 0px;
   font-family: Montserrat, sans-serif;
@@ -287,17 +276,16 @@ $appFont: Roboto, Open Sans, Helvetica Neue, Helvetica, "Hanuman", "auxswot",
   overflow: hidden;
   width: 100%;
   // z-index: -1;
-  padding: 5px 0 100px;
   position: absolute;
-  bottom: -97px;
+  bottom: 0;
   left: 0;
   font-family: "KhmerOS Siemreap", sans-serif;
 }
 
 .ticker-logo-channel {
   position: absolute;
-  top: -13px;
-  left: -20px;
+  top: -48px;
+  left: -19px;
   color: #2793e8;
   font-size: 160px;
   font-weight: bold;
@@ -314,28 +302,23 @@ $appFont: Roboto, Open Sans, Helvetica Neue, Helvetica, "Hanuman", "auxswot",
 .ticker-logo:before {
   display: table;
   content: "";
-  width: 188px;
-  height: 93px;
-  border-right: 5px solid #b8860b;
+  width: 100px;
+  height: 37px;
+  border-right: 5px solid #ffffff;
   position: absolute;
-  top: 2px;
-  left: -50px;
-  background: linear-gradient(
-    to right,
-    #333 0%,
-    #333 84%,
-    #333 91%,
-    #333 100%,
-    #ffd700 100%
-  );
+  top: -8px;
+  left: -28px;
+  background: linear-gradient(to right, #333 0%, #333 84%, #333 91%, #333 100%, #ffffff 100%);
 }
-
+::ng-deep .mat-typography p{
+  margin: 0 !important;
+}
 .ticker-tip {
   width: 100%;
   padding: 6px 0;
   margin-left: 200px;
   box-shadow: inset 0 -3px 3px rgba(255, 255, 255, 0.5);
-  background-color: #ffd700;
+  background-color: #ffffff;
   color: #111;
   transform: skew(-45deg, 0);
 }
@@ -350,7 +333,7 @@ $appFont: Roboto, Open Sans, Helvetica Neue, Helvetica, "Hanuman", "auxswot",
   width: 2500px;
   margin-top: 5px;
   padding-bottom: 5px;
-  color: #ffd700;
+  color: #ffffff;
   font-size: 20px;
   text-transform: uppercase;
   text-shadow: 0 0 2px #065b70;
@@ -384,15 +367,15 @@ $appFont: Roboto, Open Sans, Helvetica Neue, Helvetica, "Hanuman", "auxswot",
   width: 7000px;
   padding: 8px 0;
   color: #ffffff;
-  font-size: 24px;
+  font-size: 14px;
   text-transform: uppercase;
   text-shadow: 0 0 5px black;
   background: linear-gradient(
     -45deg,
-    rgba(238, 119, 82, 0.6),
-    rgba(231, 60, 126, 0.6),
-    rgba(35, 166, 213, 0.6),
-    rgba(35, 213, 171, 0.6)
+    rgba(114, 39, 16, 0.6),
+    rgba(79, 7, 34, 0.6),
+    rgba(18, 113, 147, 0.6),
+    rgba(11, 113, 89, 0.6)
   );
   background-size: 400% 400%;
   animation: gradient 15s ease infinite;

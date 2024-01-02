@@ -1,0 +1,39 @@
+<div class="img-arrow">
+  <p>Control the channel using the arrow keys</p>
+  <img src="https://clipart-library.com/img1/1670503.png" alt="" />
+  <br />
+  <p>Or Remote throught your device</p>
+  <img
+    src="  assets/mobile.png
+    "
+    alt=""
+  />
+  <p>
+    <span style="color: #1a73e8">Policy Statement:</span> <br />
+    Content Availability: Availability of content may be limited due to
+    licensing agreements and provider restrictions.
+    <br />
+
+    Internet Connectivity: A good internet connection is essential for the best
+    user experience.
+    <br />
+    Device Compatibility: Some devices may not support all features. Internet
+  
+  </p>
+
+<div class="dis-flex wtf2">
+  <label for="policyCheckbox" class="policy-statement"
+  >I have read and agree to the policy statements</label
+>
+<input
+  placeholder=""
+  type="checkbox"
+  id="policyCheckbox"
+  [(ngModel)]="policyAccepted"
+/>
+</div>
+  <div class="dis-flex wtf1">
+    <button (click)="decline()">Decline</button>
+    <button (click)="accept()" [disabled]="!policyAccepted">Accept</button>
+  </div>
+</div>

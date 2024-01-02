@@ -1,14 +1,13 @@
 <!-- <mat-progress-bar
   mode="indeterminate"
-  *ngIf="showLoading"
+  *ngIf="auth.isLoading"
   class="app-loader"
 ></mat-progress-bar>
-<router-outlet *ngIf="!showLoading"></router-outlet>
-<ng-container *ngIf="showLoading">
+<router-outlet *ngIf="!auth.isLoading"></router-outlet>
+<ng-container *ngIf="auth.isLoading">
   <div class="centre">
-    <ng-lottie height="400px" [options]="options"></ng-lottie>
   </div>
-</ng-container> -->
-
+</ng-container>
+ -->
 
 <router-outlet></router-outlet>

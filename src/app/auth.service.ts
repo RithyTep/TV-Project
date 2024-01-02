@@ -8,7 +8,7 @@ import { GoogleAuthProvider } from 'firebase/auth';
 export class AuthService {
   data2: any;
   constructor(public afAuth: AngularFireAuth) {}
-
+  isLoading: boolean = false;
   userDataAuth: any;
   loginWithGoogle() {
     const googleAuthProvider = new GoogleAuthProvider();

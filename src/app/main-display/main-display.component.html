@@ -6,16 +6,6 @@
       </div>
     </div>
 
-    <div class="ticker-title">
-      <span>Rithy TV</span>
-      <span>Rithy TV</span>
-      <span>Rithy TV</span>
-      <span>Rithy TV</span>
-      <span>Rithy TV</span>
-      <span>Rithy TV</span>
-      <span>Rithy TV</span>
-      <span>Rithy TV</span>
-    </div>
     <div class="ticker-news">
       <p>
         អ្នកអាចមើលទូរទស្សន៍ខ្មែរដែលមានប្រភេទច្រើនប្រសិនបើអ្នកចង់។
@@ -39,21 +29,11 @@
     <div class="centre">
       <!-- <div class="tv-frame" *ngIf="!isMobileScreen"> -->
 
-      <div class="tv-frame" >
+      <div class="tv-frame">
         <video #videoPlayer controls autoplay class="w-100 video"></video>
       </div>
     </div>
-    <div class="img-arrow">
-      <p>Control the channel using the arrow keys</p>
-      <img src="https://clipart-library.com/img1/1670503.png" alt="" />
-      <br />
-      <p>Or Remote throught your device</p>
-      <img
-        src="  assets/mobile.png
-      "
-        alt=""
-      />
-    </div>
+
     <div class="channel">
       <h2>Channels</h2>
       <div class="btn-channel">
@@ -107,7 +87,9 @@
     Sign Out
   </button>
   <p class="title-remote">THY SMART Remote</p>
-  <p class="title-remote">Welcome Back {{ this.auth.userDataAuth?.displayName }}</p>
+  <p class="title-remote">
+    Welcome Back {{ this.auth.userDataAuth?.displayName }}
+  </p>
   <div class="volume-display">Volume: {{ volumeLevel }}</div>
   <div class="number-display">
     Channel: {{ channelIndex || data.SelectedIndex }}

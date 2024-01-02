@@ -18,6 +18,8 @@
   import { updateDoc, onSnapshot, doc, getFirestore } from 'firebase/firestore';
   import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { MediaMatcher } from '@angular/cdk/layout';
+import { DialogAlertComponent } from '../dialog-alert/dialog-alert.component';
+import { MatDialog } from '@angular/material/dialog';
 
   interface FirestoreData {
     SelectedIndex: number;
@@ -41,6 +43,8 @@ import { MediaMatcher } from '@angular/cdk/layout';
     volumeLevel = 0;
     selectedIndex: any;
     userData: any;
+    isMobileScreen: boolean;
+isLocalChannelReceiving: any;
 
     constructor(
       private route: ActivatedRoute,
@@ -50,8 +54,25 @@ import { MediaMatcher } from '@angular/cdk/layout';
       public afAuth: AngularFireAuth,
       private firestore: AngularFirestore,
       private ngZone: NgZone,
-      private mediaMatcher: MediaMatcher
+      public dialog: MatDialog,
+      private mediaMatcher: MediaMatcher,
     ) {
+      const mobileQuery = mediaMatcher.matchMedia('(max-width: 500px)');
+
+      // Subscribe to changes in the media query
+      mobileQuery.addEventListener('change', () => {
+        this.ngZone.run(() => {
+          this.isMobileScreen = mobileQuery.matches;
+  
+          if (this.isMobileScreen) {
+            // Close the dialog if open
+            this.dialog.closeAll();
+          }
+        });
+      });
+  
+      // Set the initial value
+      this.isMobileScreen = mobileQuery.matches;
       // const mobileQuery = mediaMatcher.matchMedia('(max-width: 400px)');
 
       // // Subscribe to changes in the media query
@@ -136,13 +157,12 @@ import { MediaMatcher } from '@angular/cdk/layout';
 
     currentTime: Date = new Date();
     ngOnInit() {
-      setInterval(() => {
-        this.currentTime = new Date();
-      }, 1000);
-      this.fetchData();
+      this.auth.isLoading = true;
       this.afAuth.authState.subscribe((user) => {
         if (user) {
           this.ngZone.run(() => {
+      this.auth.isLoading = false;
+
             this.userData = user;
             this.auth.userDataAuth = this.userData;
             this.firestore
@@ -167,7 +187,21 @@ import { MediaMatcher } from '@angular/cdk/layout';
           });
         }
       });
+    
+      // Check if the screen width is greater than 500px before opening the dialog
+      if (window.innerWidth > 500) {
+        const dialogRef = this.dialog.open(DialogAlertComponent, {
+          width: '550px',
+          data: { title: 'Dialog Title', message: 'Hello, this is the dialog content!' },
+        });
+      }
+    
+      setInterval(() => {
+        this.currentTime = new Date();
+      }, 1000);
+      this.fetchData();
     }
+    
 
     fetchData(): void {
       this.afAuth.authState.subscribe((user) => {

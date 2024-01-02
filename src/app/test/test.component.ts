@@ -17,7 +17,7 @@ export class TestComponent {
 
     const d20Stu = d20.filter((item: any) => item?.isStudent);
     const d20nStu = d20.filter((item: any) => !item?.isStudent);
-
+    const filteredD20nStu = d20nStu.filter((item: any) => !d20.includes(item));
     const d20StuFor = d20Stu.filter(
       (item: any) => item?.national_application?.key === 'foreigner'
     );
@@ -32,7 +32,6 @@ export class TestComponent {
       (item: any) => item?.national_application?.key !== 'khmer'
     );
 
-    
     //T00
     const d20StuForFr = d20StuFor.filter((item: any) =>
       item?.criminal_language?.find((f: any) => f?.key === 2)
@@ -48,10 +47,10 @@ export class TestComponent {
       item?.criminal_language?.find((f: any) => f?.key !== 3)
     );
     const d20StuFornFrEn = d20StuFornFr.filter((item: any) =>
-      item?.criminal_language?.find((f: any) => f?.key === 2)
+      item?.criminal_language?.find((f: any) => f?.key === 3)
     );
     const d20StuFornFrnEn = d20StuFornFr.filter((item: any) =>
-      item?.criminal_language?.find((f: any) => f?.key !== 2)
+      item?.criminal_language?.find((f: any) => f?.key !== 3)
     );
 
     //T01
@@ -76,12 +75,15 @@ export class TestComponent {
     );
     this.combinedData = this.combinedData.concat(
       d20,
+      //bug
       d20Stu,
-      d20nStu,
-      d20nStuFor,
+      // d20nStu//bug duplicate
+      filteredD20nStu, //replace with d20nStu to fix duplicate
+      // d20nStuFor,//bug duplicate
       d20nStuKh,
       d20StuFor,
       d20StuKh,
+
       d20StuForFr,
       d20StuFornFr,
       d20StuForFrEn,
@@ -94,9 +96,12 @@ export class TestComponent {
       d20StuKhFrEn,
       d20StuKhFrnEn,
       d20StuKhnFrEn,
-      d20StuKhnFrnEn,
-
+      d20StuKhnFrnEn
     );
+    console.log('d20 length:', d20.length);
+    console.log('d20nStuFor length:', d20nStuFor.length);
+    console.log('d20:', d20.slice(0, 5));
+    console.log('d20nStuFor:', d20nStuFor.slice(0, 5));
   }
   getCriminalLanguageKey(item: any, languageKey: string): string {
     const criminalLanguage = item?.criminal_language?.find(

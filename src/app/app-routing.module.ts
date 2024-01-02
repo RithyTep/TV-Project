@@ -15,28 +15,28 @@ const routes: Routes = [
       {
         path: '',
         component: SidenavComponent,
-        // children: [
-        //   {
-        //     path: '',
-        //     redirectTo: 'display/default-channel/draftChannel',
-        //     pathMatch: 'full',
-        //   },
-        //   {
-        //     path: 'display/:channelName/:index',
-        //     component: MainDisplayComponent,
-        //   },
-        // ],
         children: [
           {
             path: '',
-            redirectTo: 'test',
+            redirectTo: 'display/default-channel/draftChannel',
             pathMatch: 'full',
           },
           {
-            path: 'test',
-            component: TestComponent,
+            path: 'display/:channelName/:index',
+            component: MainDisplayComponent,
           },
         ],
+        // children: [
+        //   {
+        //     path: '',
+        //     redirectTo: 'test',
+        //     pathMatch: 'full',
+        //   },
+        //   {
+        //     path: 'test',
+        //     component: TestComponent,
+        //   },
+        // ],
       },
     ],
   },
