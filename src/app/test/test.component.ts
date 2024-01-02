@@ -151,6 +151,147 @@ export class TestComponent {
           ? true
           : false)
     );
+
+    // 12day
+
+    const d12 = this.data.filter((item: any) => item.urgent_obj?.key === 12);
+
+    const d12Stu = d12.filter((item: any) => item?.isStudent);
+    const d12nStu = d12.filter((item: any) => !item?.isStudent);
+    const d12StuFor = d12Stu.filter(
+      (item: any) => item?.national_application?.key === 'foreigner'
+    );
+    const d12StuKh = d12Stu.filter(
+      (item: any) => item?.national_application?.key === 'khmer'
+    );
+
+    const d12nStuFor = d12nStu.filter(
+      (item: any) => item?.national_application?.key === 'foreigner'
+    );
+    const d12nStuKh = d12nStu.filter(
+      (item: any) => item?.national_application?.key === 'khmer'
+    );
+
+    //T00
+    const d12StuForFr = d12StuFor.filter((item: any) =>
+      item?.criminal_language?.find((f: any) => f?.key === 2)
+    );
+    const d12StuFornFr = d12StuFor.filter(
+      (item: any) =>
+        !(item?.criminal_language?.find((f: any) => f?.key === 2)
+          ? true
+          : false)
+    );
+
+    const d12StuForFrEn = d12StuForFr.filter((item: any) =>
+      item?.criminal_language?.find((f: any) => f?.key === 3)
+    );
+    const d12StuForFrnEn = d12StuForFr.filter(
+      (item: any) =>
+        !(item?.criminal_language?.find((f: any) => f?.key === 3)
+          ? true
+          : false)
+    );
+    const d12StuFornFrEn = d12StuFornFr.filter((item: any) =>
+      item?.criminal_language?.find((f: any) => f?.key === 3)
+    );
+    const d12StuFornFrnEn = d12StuFornFr.filter(
+      (item: any) =>
+        !(item?.criminal_language?.find((f: any) => f?.key === 3)
+          ? true
+          : false)
+    );
+
+    //T01
+    const d12StuKhFr = d12StuKh.filter((item: any) =>
+      item?.criminal_language?.find((f: any) => f?.key === 2)
+    );
+    const d12StuKhnFr = d12StuKh.filter(
+      (item: any) =>
+        !(item?.criminal_language?.find((f: any) => f?.key === 2)
+          ? true
+          : false)
+    );
+
+    const d12StuKhFrEn = d12StuKhFr.filter((item: any) =>
+      item?.criminal_language?.find((f: any) => f?.key === 3)
+    );
+    const d12StuKhFrnEn = d12StuKhFr.filter(
+      (item: any) =>
+        !(item?.criminal_language?.find((f: any) => f?.key === 3)
+          ? true
+          : false)
+    );
+    const d12StuKhnFrEn = d12StuKhnFr.filter((item: any) =>
+      item?.criminal_language?.find((f: any) => f?.key === 3)
+    );
+    const d12StuKhnFrnEn = d12StuKhnFr.filter(
+      (item: any) =>
+        !(item?.criminal_language?.find((f: any) => f?.key === 3)
+          ? true
+          : false)
+    );
+
+    // 20not
+
+    const d12nStuForFr = d12nStuFor.filter((item: any) =>
+      item?.criminal_language?.find((f: any) => f?.key === 2)
+    );
+    const d12nStuFornFr = d12nStuFor.filter(
+      (item: any) =>
+        !(item?.criminal_language?.find((f: any) => f?.key === 2)
+          ? true
+          : false)
+    );
+
+    const d12nStuForFrEn = d12nStuForFr.filter((item: any) =>
+      item?.criminal_language?.find((f: any) => f?.key === 3)
+    );
+    const d12nStuForFrnEn = d12nStuForFr.filter(
+      (item: any) =>
+        !(item?.criminal_language?.find((f: any) => f?.key === 3)
+          ? true
+          : false)
+    );
+    const d12nStuFornFrEn = d12nStuFornFr.filter((item: any) =>
+      item?.criminal_language?.find((f: any) => f?.key === 3)
+    );
+    const d12nStuFornFrnEn = d12nStuFornFr.filter(
+      (item: any) =>
+        !(item?.criminal_language?.find((f: any) => f?.key === 3)
+          ? true
+          : false)
+    );
+
+    //T01
+    const d12nStuKhFr = d12nStuKh.filter((item: any) =>
+      item?.criminal_language?.find((f: any) => f?.key === 2)
+    );
+    const d12nStuKhnFr = d12nStuKh.filter(
+      (item: any) =>
+        !(item?.criminal_language?.find((f: any) => f?.key === 2)
+          ? true
+          : false)
+    );
+
+    const d12nStuKhFrEn = d12nStuKhFr.filter((item: any) =>
+      item?.criminal_language?.find((f: any) => f?.key === 3)
+    );
+    const d12nStuKhFrnEn = d12nStuKhFr.filter(
+      (item: any) =>
+        !(item?.criminal_language?.find((f: any) => f?.key === 3)
+          ? true
+          : false)
+    );
+    const d12nStuKhnFrEn = d12nStuKhnFr.filter((item: any) =>
+      item?.criminal_language?.find((f: any) => f?.key === 3)
+    );
+    const d12nStuKhnFrnEn = d12nStuKhnFr.filter(
+      (item: any) =>
+        !(item?.criminal_language?.find((f: any) => f?.key === 3)
+          ? true
+          : false)
+    );
     this.combinedData = this.combinedData.concat(
       // d20,
       //bug
@@ -188,6 +329,33 @@ export class TestComponent {
       d20nStuKhFrnEn,
       d20nStuKhnFrEn,
       d20nStuKhnFrnEn,
+
+      // day12
+      d12StuForFrEn,
+      d12StuForFrnEn,
+      d12StuFornFrEn,
+      d12StuFornFrnEn,
+
+      // d12StuKhFr,
+      // d12StuKhnFr,
+      d12StuKhFrEn,
+      d12StuKhFrnEn,
+      d12StuKhnFrEn,
+      d12StuKhnFrnEn,
+
+      // 20not
+
+      d12nStuForFrEn,
+      d12nStuForFrnEn,
+      d12nStuFornFrEn,
+      d12nStuFornFrnEn,
+
+      // d12StuKhFr,
+      // d12StuKhnFr,
+      d12nStuKhFrEn,
+      d12nStuKhFrnEn,
+      d12nStuKhnFrEn,
+      d12nStuKhnFrnEn
     );
   }
   getCriminalLanguageKey(item: any, languageKey: string): string {
