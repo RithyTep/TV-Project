@@ -28,6 +28,9 @@ import { TestComponent } from './test/test.component';
 import { environment } from 'src/environments/environment';
 import { DialogAlertComponent } from './dialog-alert/dialog-alert.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { IonicModule } from '@ionic/angular';
+import { ButtonProfileComponent } from './button-profile/button-profile.component';import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatMenu, MatMenuModule } from '@angular/material/menu';
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,9 +41,12 @@ import { MatDialogModule } from '@angular/material/dialog';
     BtnCharthubComponent,
     TestComponent,
     DialogAlertComponent,
-    
+    ButtonProfileComponent
   ],
   imports: [
+    MatTooltipModule,
+    MatMenuModule,
+    IonicModule.forRoot(),
     MatDialogModule,
     BrowserModule,
     AppRoutingModule,

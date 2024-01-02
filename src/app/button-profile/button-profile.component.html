@@ -1,0 +1,87 @@
+<div class="profile-container">
+  <div class="profile-wrapper">
+    <div class="profile-header">
+      <img class="profile-cover" src="assets/images/bg-angkor.webp" alt="" />
+      <img
+        *ngIf="this.auth?.userDataAuth?.photoURL; else emptyImage"
+        src="{{ this.auth?.userDataAuth?.photoURL }}"
+        class="img-profile"
+      />
+
+      <div class="profile-text-user">
+        <p class="user-name">
+          {{ this.auth.userDataAuth?.displayName || "Anonymous" }}
+        </p>
+        <p class="email">{{ this.auth.userDataAuth?.email }}</p>
+      </div>
+    </div>
+
+    <mat-divider></mat-divider>
+
+    <div class="profile-menu">
+      <div class="profile-menu-list">
+        <span class="icon">
+          <ion-icon name="globe-outline"></ion-icon>
+        </span>
+        <span class="text">Visit Us</span>
+      </div>
+
+      <div
+        [@fadeInOut]
+        *ngIf="auth.showAdditionalMenuItems"
+        class="scroll style-1"
+      ></div>
+      <mat-divider *ngIf="auth.showAdditionalMenuItems"></mat-divider>
+
+      <div
+        class="profile-menu-list"
+        matTooltip="Visit our Facebook page"
+        matTooltipPosition="left"
+        (click)="menuProfileHandle('fb')"
+      >
+        <span class="icon">
+          <ion-icon name="logo-facebook" color="primary"></ion-icon>
+        </span>
+        <span class="text">Facebook</span>
+      </div>
+
+      <div
+        class="profile-menu-list"
+        matTooltip="Visit our Youtube channel"
+        matTooltipPosition="left"
+        (click)="menuProfileHandle('yt')"
+      >
+        <span class="icon">
+          <ion-icon name="logo-youtube" color="danger"></ion-icon>
+        </span>
+        <span class="text">Youtube</span>
+      </div>
+
+      <mat-divider></mat-divider>
+      <div class="profile-menu-list">
+        <span class="icon log-out">
+          <ion-icon name="log-out-outline"></ion-icon>
+        </span>
+        <span
+          color="accent"
+          class="text log-out"
+          *ngIf="(afAuth.authState | async) === null"
+          (click)="auth.loginWithGoogle()"
+        >
+          Sign In
+        </span>
+        <span
+          *ngIf="afAuth.authState | async"
+          (click)="auth.logout()"
+          class="text log-out"
+          color="primary"
+        >
+          Sign Out
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+<ng-template #emptyImage>
+  <img src="{{ photoLib.EMPTY }}" class="img-profile" />
+</ng-template>

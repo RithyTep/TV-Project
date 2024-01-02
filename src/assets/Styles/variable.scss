@@ -1,0 +1,170 @@
+// @import url('https://fonts.googleapis.com/css2?family=Khmer&family=Russo+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Khmer&family=Passion+One&family=Russo+One&display=swap');
+
+$sidebarwidth: 256px;
+$header: #393a3d;
+$background: #FAFAFA;
+
+
+
+// $appFontEN: system-ui, -apple-system, BlinkMacSystemFont, ".SFNSText-Regular",'auxswot',"khmer os siemreap", Roboto, Open Sans, Helvetica Neue, Helvetica, Arial,sans-serif;
+$appFont: system-ui, -apple-system, BlinkMacSystemFont, ".SFNSText-Regular",'auxswot',"khmeros_siemreap", Roboto, Open Sans, Helvetica Neue, Helvetica, Arial, 'Battambang', 'khmeros_siemreap', 'Roboto Bold English' ;
+// $appFontTitle: system-ui, -apple-system, BlinkMacSystemFont, ".SFNSText-Regular","Moul",'auxswot', "Khmer OS Siemreap", 'khmeros_siemreap', 'Battambang', 'Roboto Bold English' , 'Roboto BoldCondensedltalic English';	
+$appFontStrong: system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular',Roboto, Open Sans , Helvetica Neue, Helvetica, Arial, 'auxswot-bold','auxswot','Battambang','khmeros_siemreap', 'Roboto Bold English';
+
+$appFontTitle: 'Roboto Bold English',"Moul", 'Roboto Bold';	
+
+
+//side nav
+$sidebarbgcolor: #f3f2f1; //rottanak
+$sideBorder: #edebe9; //rottanak
+$sideBackgroundHover: #d5d5d5;
+$sideColor: #202124; //rottanak
+$sideExpansion: #edebe8;
+$sideColorAlpha: #202124; //rottanaks
+$sideBarActive: #1da1f2;
+$brand: rgba(255, 255, 255, 0.9);
+
+$color: #202124;
+$colorTitle: #CCA463;
+$appprimaryColor: #1a73e8;
+$border: #dfe1e5;
+$buttonColor1: #1a6eb0;
+$buttonColor2: #1a6eb0;
+$red: #f44336;
+$link: #1a73e8;
+$primary: #1a73e8;
+$secondary: #f1f2f5;
+$green: #0b9e43;
+$primaryBackground: #039be5;
+$hoverPrimary: #00517f;
+$sidebarbgcoloractive: #f3f4fa;
+$sidebarcolor: #333;
+$blackBg: rgba(255, 255, 255, 0.9);
+$svgfillcolor: #1a73e8;
+$svgWash: #eaf3ff;
+$text-primary: #111;
+$textInfo: #111;
+$darkPrimary: rgba(0, 0, 0, 0.2);
+$darkPrimaryHover: rgba(255, 255, 255, 0.2);
+$padding: 24px;
+$radius: 8px;
+$menuItemHover: #1da1f2;
+$tabColor: #476282;
+$tabColorActive: #1a73e8;
+$headerText:#5f6368;
+$active: #1a73e8;
+
+$menuActiveColor: #e9f0fe;
+
+$piconColor: #393a3d;
+$appsecendaryColor: #f4f5f8;
+$inputBg: #f0f2f5;
+$titleColor: #393a3d;
+$descColor: #6b6c72;
+$bgActive: #cee7ff;
+
+
+@mixin placeholder-color($color) {
+  &.placeholder {
+    color: $color;
+  }
+  &:-moz-placeholder {
+    color: $color;
+  }
+  &::-webkit-input-placeholder {
+    color: $color;
+  }
+  &:-ms-input-placeholder {
+    color: $color;
+  }
+}
+$color1:#3476d0;
+$color2: #0c4caa;
+
+$margin: 24px;
+$mr2: 20px;
+$radiusBig: 12px;
+$whiteColor: #fff;
+$btnBg: #e4e6eb;
+$divider: #ced0d4;
+$subtitle: #6b6c72;
+$formColor: #002060;
+$smoke: #e4e6eb;
+$placeholder: #65676b;
+$focus: $color1;
+
+
+body {
+  --background-color: #18181B;
+  --text-color: #A1A1AA;
+
+  --card-background-color: rgba(255, 255, 255, .015);
+  --card-border-color: rgba(255, 255, 255, 0.1);
+  --card-box-shadow-1: rgba(0, 0, 0, 0.05);
+  --card-box-shadow-1-y: 3px;
+  --card-box-shadow-1-blur: 6px;
+  --card-box-shadow-2: rgba(0, 0, 0, 0.1);
+  --card-box-shadow-2-y: 8px;
+  --card-box-shadow-2-blur: 15px;
+  --card-label-color: #FFFFFF;
+  --card-icon-color: #D4D4D8;
+  --card-icon-background-color: rgba(255, 255, 255, 0.08);
+  --card-icon-border-color: rgba(255, 255, 255, 0.12);
+  --card-shine-opacity: .1;
+  --card-shine-gradient: conic-gradient(from 205deg at 50% 50%, rgba(16, 185, 129, 0) 0deg, #10B981 25deg, rgba(52, 211, 153, 0.18) 295deg, rgba(16, 185, 129, 0) 360deg);
+  --card-line-color: #2A2B2C;
+  --card-tile-color: rgba(16, 185, 129, 0.05);
+
+  --card-hover-border-color: rgba(255, 255, 255, 0.2);
+  --card-hover-box-shadow-1: rgba(0, 0, 0, 0.04);
+  --card-hover-box-shadow-1-y: 5px;
+  --card-hover-box-shadow-1-blur: 10px;
+  --card-hover-box-shadow-2: rgba(0, 0, 0, 0.3);
+  --card-hover-box-shadow-2-y: 15px;
+  --card-hover-box-shadow-2-blur: 25px;
+  --card-hover-icon-color: #34D399;
+  --card-hover-icon-background-color: rgba(52, 211, 153, 0.1);
+  --card-hover-icon-border-color: rgba(52, 211, 153, 0.2);
+
+  --blur-opacity: .01;
+
+  &.light {
+    --background-color: #FAFAFA;
+    --text-color: #52525B;
+
+    --card-background-color: transparent;
+    --card-border-color: rgba(24, 24, 27, 0.08);
+    --card-box-shadow-1: rgba(24, 24, 27, 0.02);
+    --card-box-shadow-1-y: 3px;
+    --card-box-shadow-1-blur: 6px;
+    --card-box-shadow-2: rgba(24, 24, 27, 0.04);
+    --card-box-shadow-2-y: 2px;
+    --card-box-shadow-2-blur: 7px;
+    --card-label-color: #18181B;
+    --card-icon-color: #18181B;
+    --card-icon-background-color: rgba(24, 24, 27, 0.04);
+    --card-icon-border-color: rgba(24, 24, 27, 0.1);
+    --card-shine-opacity: .3;
+    --card-shine-gradient: conic-gradient(from 225deg at 50% 50%, rgba(16, 185, 129, 0) 0deg, #10B981 25deg, #EDFAF6 285deg, #FFFFFF 345deg, rgba(16, 185, 129, 0) 360deg);
+    --card-line-color: #E9E9E7;
+    --card-tile-color: rgba(16, 185, 129, 0.08);
+
+    --card-hover-border-color: rgba(24, 24, 27, 0.15);
+    --card-hover-box-shadow-1: rgba(24, 24, 27, 0.05);
+    --card-hover-box-shadow-1-y: 3px;
+    --card-hover-box-shadow-1-blur: 6px;
+    --card-hover-box-shadow-2: rgba(24, 24, 27, 0.1);
+    --card-hover-box-shadow-2-y: 8px;
+    --card-hover-box-shadow-2-blur: 15px;
+    --card-hover-icon-color: #18181B;
+    --card-hover-icon-background-color: rgba(24, 24, 27, 0.04);
+    --card-hover-icon-border-color: rgba(24, 24, 27, 0.34);
+
+    --blur-opacity: .1;
+  }
+
+  &.toggle .grid * {
+    transition-duration: 0s !important;
+  }
+}

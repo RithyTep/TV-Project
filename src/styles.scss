@@ -24,7 +24,5 @@ body {
       format("woff2");
   unicode-range: U+1780-17FF, U+200C, U+25CC;
 }
-::ng-deep .mat-drawer,
-.mat-drawer-container,
-.mat-drawer-inner-container  {
-}
+
+@import "/src/assets/Styles/app.scss";

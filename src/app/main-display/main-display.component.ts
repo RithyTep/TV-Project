@@ -147,7 +147,7 @@ isLocalChannelReceiving: any;
           const data = doc.data() as FirestoreData;
           if (data) {
             const selectedIndex = data.SelectedIndex;
-            this.router.navigate(['/display', data.ChannelName, selectedIndex]);
+            this.router.navigate(['/television', data.ChannelName, selectedIndex]);
           }
         });
         return docRef;
@@ -174,7 +174,7 @@ isLocalChannelReceiving: any;
                   const channelName = data.ChannelName;
                   this.selectedIndex = data.SelectedIndex || 0;
                   this.router.navigate([
-                    '/display',
+                    '/television',
                     channelName,
                     this.selectedIndex,
                   ]);
@@ -357,7 +357,7 @@ isLocalChannelReceiving: any;
 
       const channelName = channels[index].name;
       this.createCollection(index, channelName);
-      this.router.navigate(['/display', channelName, index]);
+      this.router.navigate(['/television', channelName, index]);
     }
 
     updateChannelIndex(num: number) {

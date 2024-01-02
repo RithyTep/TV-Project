@@ -27,7 +27,7 @@ export class RedirectComponent implements OnInit {
             if (data && data.ChannelName) {
               const channelName = data.ChannelName;
               const defaultIndex = data.SelectedIndex;
-              this.router.navigate(['/display', channelName, defaultIndex]);
+              this.router.navigate(['/television', channelName, defaultIndex]);
             }
           });
       }

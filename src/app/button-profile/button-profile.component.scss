@@ -1,0 +1,304 @@
+// @import "src/assets/styles/variable.scss";
+
+// .img-profile {
+//   height: 80px;
+//   width: 80px;
+//   border-radius: 50%;
+//   margin-bottom: 2px;
+//   border: 2px solid rgb(0 0 0)
+// }
+// .color-white {
+//   color: #fff !important;
+// }
+// .color-blue {
+//   color: #1877f2 !important;
+// }
+
+// .text-subject {
+//   color: #ffffff;
+//   font-size: 10px;
+//   font-family: $appFont;
+// }
+// .text-title {
+//   color: #ffffff;
+//   font-weight: 500;
+//   font-family: $appFont;
+//   font-size: 13px;
+//   overflow: hidden;
+//   text-overflow: ellipsis;
+//   display: -webkit-box;
+//   -webkit-line-clamp: 1;
+//   -webkit-box-orient: vertical;
+//   white-space: break-spaces;
+//   word-break: break-all;
+// }
+// .ch_head_name {
+//   font-weight: 500;
+//   margin-left: 10px;
+//   font-size: 18px;
+//   color: #333;
+// }
+// .head_manage_acc {
+//   color: #232323;
+//   font-size: 12px;
+//   margin-left: 12px;
+//   line-height: 0;
+// }
+// .current-resident {
+//   padding: 8px;
+//   background-color: #1877f2;
+//   color: #fff;
+//   align-items: center;
+// }
+// .current-resident div {
+//   line-height: 0.7;
+//   display: inline-grid;
+//   align-items: center;
+//   vertical-align: middle;
+//   min-width: 35px;
+// }
+// .current-resident:hover {
+//   background-color: #5196f1 !important;
+// }
+// .user-profile {
+//   display: flex;
+//   flex-direction: column;
+//   gap: 8px;
+//   align-items: center;
+// }
+
+// .user-profile div {
+//   line-height: 1;
+//   display: inline-grid;
+//   align-items: center;
+//   vertical-align: middle;
+// }
+// .wrapper {
+//   width: 300px;
+//   padding: 10px 0;
+// }
+
+// .wrapper ul li {
+//   margin: 0 10px;
+//   border-radius: 10px;
+//   line-height: 48px;
+//   padding-left: 6px !important;
+//   float: inherit;
+// }
+
+// .menu-bar hr {
+//   height: 1px;
+//   margin: 6px 20px;
+// }
+// .wrapper ul li a {
+//   width: 100%;
+//   color: #232323;
+//   font-size: 13.5px;
+//   font-weight: 300;
+//   display: flex;
+//   align-items: center;
+//   text-decoration: none;
+// }
+
+// .wrapper li:hover {
+//   background: #e6e6e6;
+//   transition: all 0.1s ease-in-out;
+// }
+// .icon {
+//   line-height: 0.7;
+//   display: inline-grid;
+//   align-items: center;
+//   vertical-align: middle;
+//   height: 35px;
+//   width: 35px;
+//   margin-right: 13px;
+//   background: #0000001a;
+//   display: flex;
+//   justify-content: center;
+//   text-align: center;
+//   border-radius: 50%;
+// }
+// .icon:hover {
+//   background-color: rgb(220, 220, 220);
+// }
+// a {
+//   cursor: pointer;
+// }
+
+// .list-resident {
+//   margin: 5px;
+//   overflow-y: auto;
+//   max-height: 100px;
+// }
+// .resi-text {
+//   font-weight: 500;
+//   font-family: $appFont;
+//   font-size: 13px;
+// }
+// .mat-mdc-icon-button.mat-mdc-button-base {
+//   background-color: #e4e6eb;
+// }
+// .mat-mdc-icon-button.mat-mdc-button-base {
+//   width: 42px;
+//   height: 42px;
+//   padding: 9px;
+// }
+// .language {
+//   display: flex;
+//   margin: 0 10px;
+//   padding: 4px 8px;
+// }
+// .language:hover{
+//   background: #e6e6e6;
+//   transition: all 0.1s ease-in-out;
+//   border-radius: 10px;
+//   line-height: 48px;
+//   float: inherit;
+//   cursor: pointer;
+// }
+// .child-lang {
+//   margin: 0 3px;
+// }
+// .logout {
+//   cursor: pointer;
+//   width: 42px;
+//   height: 42px;
+// }
+// .img-resi {
+//   padding: 3px;
+//   width: 100%;
+//   border-radius: 50%;
+//   height: 100%;
+// }
+// ::ng-deep .wrapper {
+//   min-width: 100% !important;
+//   max-width: 100% !important;
+//   overflow: auto;
+// }
+// .logout-text{
+//   margin: auto 0;
+//   font-family: $appFont;
+// }
+// .ptr-6{
+//   padding: 6px 0;
+// }
+
+
+
+
+
+
+
+// =====================
+// Import variables if not already imported
+@import "src/assets/styles/variable.scss";
+
+.profile-container {
+  min-width: 280px;
+  max-width: 280px;
+  .profile-wrapper {
+    position: relative;
+    .profile-cover {
+      background-color:#e6e6e6;;
+      top: 0;
+      position: absolute;
+      height: 92px;
+      background-size: cover;
+      object-fit: cover;
+      background-position: center;
+      width: 280px;
+    }
+    .profile-header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      padding: 16px 16px 4px 16px;
+
+      .img-profile {
+        z-index: 99;
+        width: 80px;
+        margin-top: 8px;
+        height: 80px;
+        border-radius: 50%;
+        margin-bottom: 2px;
+        border: 3px solid #fff;
+        background-color:#e6e6e6;;
+      }
+
+      .profile-text-user {
+        font-family: $appFont;
+        letter-spacing: normal;
+        color:#1f1f1f;
+        text-align: center;
+
+        .user-name {
+          font-weight: 500;
+          font-size: 18px;
+          color: #333;
+        }
+
+        .email {
+          font-size: 14px;
+          font-weight: 400;
+        }
+      }
+    }
+
+    .profile-menu {
+      margin-bottom: 4px;
+      .scroll {
+        overflow: auto;
+      }
+      .profile-menu-list {
+        padding: 0 16px;
+        height: 38px;
+        display: flex;
+        align-items: center;
+        position: relative;
+        font-family: $appFont;
+        color:#1f1f1f;
+        font-size: 14px;
+        transition: 0.2s ease;
+
+        &:hover {
+          background-color:#e6e6e6;;
+          cursor: pointer;
+        }
+        .icon {
+          font-size: 22px;
+          position: absolute;
+          top: 53%;
+          left: 10%;
+          transform: translate(-50%, -50%);
+          .icon-lang {
+            width: 22px;
+          }
+        }
+        .text {
+          margin-left: 40px;
+        }
+        .log-out {
+          color: #e30000;
+        }
+
+        .dropdown-list {
+          position: absolute;
+          top: 37%;
+          right: 10%;
+        }
+      }
+    }
+  }
+}
+
+mat-divider {
+  padding: 2px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+::ng-deep .mat-mdc-menu-panel.mat-mdc-menu-panel{
+  background-color: #fff !important;
+}
+::ng-deep .mat-mdc-menu-content{
+  padding: 0 !important;
+}

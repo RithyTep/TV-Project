@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { AuthService } from '../auth.service';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { PHOTO_LIB } from '../dummy/data';
 
 @Component({
   selector: 'app-navbar',
@@ -9,15 +10,22 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
   styleUrls: ['./navbar.component.scss'],
 })
 export class NavbarComponent {
-  constructor(public auth: AuthService, public afAuth: AngularFireAuth, private breakpointObserver: BreakpointObserver) {}
+  photoLib = PHOTO_LIB;
+
+  constructor(
+    public auth: AuthService,
+    public afAuth: AngularFireAuth,
+    private breakpointObserver: BreakpointObserver
+  ) {}
   login() {
     this.auth.loginWithGoogle();
   }
   isMobileScreen: boolean = false;
   navbarWidth: string = 'calc(100vw - 233px)'; // Default width
   ngOnInit() {
-    this.breakpointObserver.observe([Breakpoints.Handset, Breakpoints.Small])
-      .subscribe(result => {
+    this.breakpointObserver
+      .observe([Breakpoints.Handset, Breakpoints.Small])
+      .subscribe((result) => {
         this.isMobileScreen = result.matches;
         if (this.isMobileScreen) {
           this.navbarWidth = '100vw'; // Set width to 100vw when isMobileScreen is true
@@ -25,5 +33,8 @@ export class NavbarComponent {
           this.navbarWidth = 'calc(100vw - 233px)'; // Default width for non-mobile
         }
       });
+  }
+  stopPropagation(event: Event): void {
+    event.stopPropagation();
   }
 }

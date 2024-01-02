@@ -7,6 +7,7 @@ import { GoogleAuthProvider } from 'firebase/auth';
 })
 export class AuthService {
   data2: any;
+  showAdditionalMenuItems!: boolean;
   constructor(public afAuth: AngularFireAuth) {}
   isLoading: boolean = false;
   userDataAuth: any;
@@ -18,9 +19,5 @@ export class AuthService {
   logout() {
     this.userDataAuth = null;
     return this.afAuth.signOut();
-  }
-
-  get loggedIn(): boolean {
-    return !!this.afAuth.currentUser;
   }
 }

@@ -1,12 +1,6 @@
 <nav class="navbar" [style.width]="navbarWidth">
   <div class="navbar-logo">
-    <a href="/"> {{ this.auth.userDataAuth?.displayName }}</a>
-    <img
-      class="wtf"
-      *ngIf="this.auth?.userDataAuth"
-      src="{{ this.auth?.userDataAuth?.photoURL }}"
-      alt=""
-    />
+
   </div>
   <ul class="navbar-menu">
     <li class="navbar-item">
@@ -21,24 +15,36 @@
   </ul>
   <ul class="navbar-auth">
     <li class="navbar-item">
-      <button
-        mat-flat-button
-        color="accent"
-        *ngIf="(afAuth.authState | async) === null"
-        (click)="auth.loginWithGoogle()"
-        color="accent"
-      >
-        Sign In
-      </button>
-      <button
-        *ngIf="afAuth.authState | async"
-        (click)="auth.logout()"
-        mat-flat-button
-        color="accent"
-        color="primary"
-      >
-        Sign Out
-      </button>
+
+  <!-- profile -->
+  <div
+    matTooltip="Profile"
+    [matMenuTriggerFor]="userAccountMenu"
+  >
+      <div class="user-profile">
+        <img
+          *ngIf="this.auth?.userDataAuth?.photoURL; else emptyImage"
+          src="{{ this.auth?.userDataAuth?.photoURL}}"
+          class="img-profile"
+        />
+        <ng-template #emptyImage>
+          <img src="{{ photoLib.EMPTY }}" class="img-profile" />
+        </ng-template>
+      </div>
+    <ng-template #loadingTemplate>
+      <img src="{{ photoLib.EMPTY }}" class="img-profile loading" />
+    </ng-template>
+  </div>
+  <!-- profile-dropdown -->
+
+  <mat-menu
+    #userAccountMenu
+    [overlapTrigger]="false"
+    yPosition="below"
+    class="profile-dropdown"
+  >
+    <app-button-profile   (click)=" stopPropagation($event)"></app-button-profile>
+  </mat-menu>
     </li>
   </ul>
 </nav>

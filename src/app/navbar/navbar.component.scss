@@ -75,3 +75,224 @@
     background-color: transparent !important;
   }
 }
+@import "/src/assets/Styles/variable.scss";
+
+.toolbar-item-spacer {
+  flex: 1 1 auto;
+}
+.dis-none {
+  display: none;
+}
+
+.main-header {
+  display: flex;
+  position: fixed;
+  justify-content: center;
+  align-self: center;
+  top: 0;
+  z-index: 999;
+  box-sizing: border-box;
+  padding: 6px 16px;
+  width: 100%;
+  background-color: #fff;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
+}
+:host ::ng-deep .mat-mdc-menu-panel.mat-mdc-menu-panel {
+  min-width: 0% !important;
+  max-width: 0% !important;
+  overflow: hidden;
+}
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo-img {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}
+
+.logo-font {
+  font-family: $appFontTitle;
+  font-size: 16px;
+  color: $primary;
+  text-decoration: none;
+  cursor: pointer;
+  position: relative;
+}
+
+.logo-font::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: rgb(95, 155, 234);
+  transform-origin: right;
+  transform: scaleX(0);
+  transition: transform 0.3s ease-in-out;
+}
+
+.logo-font:hover::after {
+  transform-origin: left;
+  transform: scaleX(1);
+}
+.logo,
+.language,
+.lang-dropdown {
+  margin-right: 16px;
+}
+
+@media screen and (max-width: 554px) {
+  .logo-font {
+    font-family: $appFontTitle;
+    font-size: 11px;
+    color: $primary;
+    min-width: 150px;
+    text-decoration: none;
+  }
+  .language {
+    display: none;
+  }
+  .lang-dropdown {
+    display: block;
+  }
+}
+
+.mat-mdc-icon-button.mat-mdc-button-base {
+  width: 40px;
+  height: 40px;
+  padding: 8px;
+}
+
+//dropdown notification
+.notification-wrapper {
+  display: block;
+  width: 300px;
+  height: 600px;
+  overflow-y: auto;
+}
+
+.notification-wrapper .notification-header {
+  padding: 15px;
+  color: #111;
+  background-color: rgb(255, 255, 255);
+  border-bottom: 1px solid rgb(211, 211, 211);
+}
+
+.notification-wrapper .notification-header .label {
+  font-family: $appFont;
+  font-weight: 500;
+}
+.notification-header {
+  position: fixed;
+  padding: 15px;
+  color: #111;
+  background-color: rgb(255, 255, 255);
+  border-bottom: 1px solid rgb(211, 211, 211);
+  width: 100%;
+}
+.mt {
+  margin-top: 60px;
+}
+.noti-child {
+  display: flex;
+  border: 0px;
+  border-style: solid;
+  border-bottom-width: 1px;
+  border-image: linear-gradient(
+      to right,
+      white 15%,
+      #cedae0 40%,
+      #cedae0 60%,
+      white 85%
+    )
+    1 20%;
+  padding: 8px;
+  border-radius: 5px;
+  margin: 5px;
+  cursor: pointer;
+}
+.noti-child:hover {
+  background-color: #f2f2f2;
+}
+.noti-img {
+  width: 140px;
+  height: 140px;
+  display: block;
+  margin: 0 auto 30px;
+}
+
+.noti-user-name {
+  color: $titleColor;
+  font-size: 14px;
+  line-height: 21px;
+}
+.noti-user-decs {
+  font-size: 12px;
+  color: $descColor;
+}
+
+// droppdown profile
+.mat-menu-panel .mat-menu-panel {
+  width: 400px !important;
+  height: 400px !important;
+}
+
+.mat-mdc-icon-button.mat-mdc-button-base {
+  background-color: #d9d9d9;
+  margin: 0 2px;
+}
+.img-profile {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  margin-left: 4px;
+}
+
+
+.loading {
+  background-color: #cdcdcc;
+}
+.centre {
+  position: fixed;
+  width: 100%;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.text-nodata {
+  font-family: $appFont;
+  text-align: center;
+  margin: 0 auto;
+  color: #1a73e8;
+  font-size: 18px;
+}
+.dis-flex {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 20px;
+  padding: 6px 24px 6px 10px;
+  font-family: $appFont;
+  cursor: pointer;
+}
+
+.dis-flex:hover {
+  background-color: #f2f2f2;
+}
+::ng-deep .lang-menu {
+  overflow: hidden !important;
+}
+::ng-deep .mat-mdc-menu-panel.mat-mdc-menu-panel {
+  overflow: hidden !important;
+}
+::ng-deep .noti-dropdown {
+  min-width: 100% !important;
+  max-width: 100% !important;
+  overflow: hidden !important;
+}

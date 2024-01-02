@@ -44,18 +44,19 @@
   background-color: #ccc;
   cursor: not-allowed;
 }
-
+.decline-button {
+  background-color: #f44336 !important;
+}
 .dis-flex {
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.wtf1{
+.wtf1 {
   gap: 20px;
 }
-.wtf2{
+.wtf2 {
   margin-top: 7px;
 }
-.policy-statement{
-  
+.policy-statement {
 }
