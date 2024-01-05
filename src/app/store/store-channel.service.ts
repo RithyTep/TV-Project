@@ -26,7 +26,15 @@ export class StoreChannelService {
     {
       name: 'SeaTV Radio',
       url: 'https://fmseatv.netlinkbroadcaster.com/hls/test.m3u8',
-    },   
+    },
+    {
+      name: 'TeaTv',
+      url: 'https://livefta.malimarcdn.com/ftaedge00/teatv2.sdp/playlist.m3u8',
+    },
+    {
+      name: 'KHMERTV',
+      url: 'https://livefta.malimarcdn.com/ftaedge00/khmertv2020.stream/chunklist.m3u8',
+    },
     // {
     //   name: 'TV5',
     //   url: 'http://203.176.130.123:8989/live/tv5_480k.stream/playlist.m3u8',
@@ -47,10 +55,65 @@ export class StoreChannelService {
     //   name: 'WIKI TV',
     //   url: 'http://206.189.93.160:1935/live/myStream_720p/playlist.m3u8',
     // },
-    // {
-    //   name: 'CTV9',
-    //   url: 'http://203.176.130.123:8989/live/ctv9hd.stream/playlist.m3u8',
-    // },
+    {
+      name: 'CCTVPlus1',
+      url: 'https://cd-live-stream.news.cctvplus.com/live/smil:CHANNEL1.smil/playlist.m3u8',
+    },
+    {
+      name: 'NBS Korea',
+      url: 'https://media.joycorp.co.kr:4443/live/live_720p/playlist.m3u8',
+    },
+
+    {
+      name: 'ThaiParliament',
+      url: 'https://cdn-live.tpchannel.org/v1/0180e10a4a7809df73070d7d8760/0180e10adac40b8ed59433d5f3ce/main.m3u8',
+    },
+    {
+      name: 'ALTV',
+      url: 'https://edge6a.v2h-cdn.com/tvb_thai/tvb_thai.stream/playlist.m3u8',
+    },
+    {
+      name: 'Zabb',
+      url: 'https://vdo.plathong.net/flash7057/flash7057/playlist.m3u8',
+    },
+    {
+      name: 'DLTV1',
+      url: 'https://cdn-live.dltv.ac.th/dltv01.m3u8',
+    },
+
+    {
+      name: 'NBT 11',
+      url: 'https://cdn-edge-ott.prd.go.th/live_vlc/smil:01f1-8b4b-971e-aa35-d5fa.smil/playlist.m3u8?DVR=',
+    },
+    {
+      name: 'SuwannabhumiChannel',
+      url: 'https://live.bangkokstream.com:19360/suwannabhumi/suwannabhumi.m3u8',
+    },
+    {
+      name: 'Ning TV ',
+      url: 'https://livefta.malimarcdn.com/ftaedge00/ningtv.sdp/playlist.m3u8',
+    },
+    {
+      name: 'Lao Net TV ',
+      url: 'https://livefta.malimarcdn.com/ftaedge00/laonet.sdp/playlist.m3u8',
+    },
+    {
+      name: 'VOV TV ',
+      url: 'https://live.mediatech.vn/live/285fbc845578c6641d5a4c40534a0d1864b/playlist.m3u8',
+    },
+    {
+      name: 'HanoiTV1 ',
+      url: 'https://cecex9g5cpliv.vcdn.cloud/capture/smil:HN1.smil/playlist.m3u8',
+    },
+    {
+      name: 'Hau Giang TV',
+      url: 'https://60acee235f4d5.streamlock.net/HGTV/d1/playlist.m3u8',
+    },
+    {
+      name: 'ANTV',
+      url: 'https://liveh34.vtvcab.vn/hls/ONANTV_CL/04.m3u8',
+    },
+
     // {
     //   name: 'Fresh News',
     //   url: 'https://streaming.freshnewsasia.com/live/ngrp:myStream_all/chunklist_w1992010384_b1496608.m3u8',
@@ -67,19 +130,11 @@ export class StoreChannelService {
     //   name: 'Raksmey Hang Mease',
     //   url: 'http://malisresidencess.com:1934/rhm_hdtv/smil:RHMHDTV.smil/chunklist_w616528546_b1800000_sleng.m3u8',
     // },
-    {
-      name: 'TeaTv',
-      url: 'https://livefta.malimarcdn.com/ftaedge00/teatv2.sdp/playlist.m3u8',
-    },
-    {
-      name: 'KHMERTV',
-      url: 'https://livefta.malimarcdn.com/ftaedge00/khmertv2020.stream/chunklist.m3u8',
-    },
+
     // {
     //   name: 'MSJ TV',
     //   url: 'http://124.248.165.18:1935/live/myStream.smil/chunklist_w1860765658_b2260000_sleng.m3u8',
     // },
- 
 
     // {
     //   name: 'MBC TV',
@@ -240,18 +295,88 @@ export class StoreChannelService {
       name: 'Pocket watch',
       url: 'https://dai2.xumo.com/amagi_hls_data_xumo1212A-xumo-pocket-watch/CDN/master.m3u8',
     },
-    {
-      name: ' Cartoon Nitro',
-      url: 'https://playout.cdn.cartoonnetwork.com.br/playout_04/playlist.m3u8',
-    },
+
     {
       name: 'ANTD',
       url: 'https://liveh34.vtvcab.vn/hls/ONANTV_CL/04.m3u8',
     },
-  
+
     {
-      name: '2',
-      url: 'https://wzorigin.teroradio.com/Tofu/Tofu-Webcam1/playlist.m3u8',
+      name: 'ABN TV',
+      url: 'https://vod2.abn.co.kr/IPHONE/abn.m3u8',
+    },
+    {
+      name: 'Arirang Radio',
+      url: 'http://amdlive-ch01.ctnd.com.edgesuite.net/arirang_3ch/smil:arirang_3ch.smil/playlist.m3u8',
+    },
+    {
+      name: 'Arirang TV',
+      url: 'http://amdlive-ch01.ctnd.com.edgesuite.net/arirang_1ch/smil:arirang_1ch.smil/playlist.m3u8',
+    },
+
+    {
+      name: 'BTN TV',
+      url: 'https://btn.nowcdn.co.kr/btn/btnlive2m/playlist.m3u8',
+    },
+
+    {
+      name: 'CJ OnStyle Plus',
+      url: 'https://live-ch2.cjonstyle.net/cjosplus/live2/playlist.m3u8',
+    },
+    {
+      name: 'CTS기독교TV',
+      url: 'https://d34t5yjz1ooymj.cloudfront.net/out/v1/875039d5eba0478fa8375a06b3aa5a37/index.m3u8',
+    },
+    {
+      name: 'EBS 1',
+      url: 'https://ebsonair.ebs.co.kr/ebs1familypc/familypc1m/playlist.m3u8',
+    },
+    {
+      name: 'EBS 2',
+      url: 'https://ebsonair.ebs.co.kr/ebs2familypc/familypc1m/playlist.m3u8',
+    },
+    {
+      name: 'EBS E',
+      url: 'https://ebsonair.ebs.co.kr/plus3familypc/familypc1m/playlist.m3u8',
+    },
+    {
+      name: 'EBS kids',
+      url: 'https://ebsonair.ebs.co.kr/ebsufamilypc/familypc1m/playlist.m3u8',
+    },
+    {
+      name: 'EBS+ 1',
+      url: 'https://ebsonair.ebs.co.kr/plus1familypc/familypc1m/playlist.m3u8',
+    },
+    {
+      name: 'EBS+ 2',
+      url: 'https://ebsonair.ebs.co.kr/plus2familypc/familypc1m/playlist.m3u8',
+    },
+    {
+      name: 'FGTV',
+      url: 'https://fgtvlive.fgtv.com/smil:fgtv.smil/playlist.m3u8',
+    },
+
+    {
+      name: 'Gongyoung Shopping',
+      url: 'https://etv.publichs.com/live5.stream/playlist.m3u8',
+    },
+
+    {
+      name: 'GS My Shop',
+      url: 'https://gstv-myshop.gsshop.com/myshop_hd/myshop_hd.stream/playlist.m3u8',
+    },
+    {
+      name: 'GS Shop',
+      url: 'https://gstv-gsshop.gsshop.com/gsshop_hd/gsshop_hd.stream/playlist.m3u8',
+    },
+    {
+      name: 'GugakTV 국악방송',
+      url: 'https://mgugaklive.nowcdn.co.kr/gugakvideo/gugakvideo.stream/playlist.m3u8',
+    },
+
+    {
+      name: 'Hau Giang TV',
+      url: 'https://60acee235f4d5.streamlock.net/HGTV/d1/playlist.m3u8',
     },
   ];
 
