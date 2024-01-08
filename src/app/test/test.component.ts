@@ -9,8 +9,14 @@ import data from './moj-report.json';
 export class TestComponent {
   data: any;
   combinedData: any[] = [];
-
+  sum: any;
+  totalAmountKhmer = 0;
+  totalAmountEnglish = 0;
+  totalAmountFrench = 0;
   constructor() {
+    this.totalAmountKhmer = 0;
+    this.totalAmountEnglish = 0;
+    this.totalAmountFrench = 0;
     this.data = data;
 
     const d20 = this.data.filter((item: any) => item.urgent_obj?.key === 20);
@@ -30,6 +36,18 @@ export class TestComponent {
     const d20nStuKh = d20nStu.filter(
       (item: any) => item?.national_application?.key === 'khmer'
     );
+    const lengthD20nStuKh = d20nStu.filter((item: any) =>
+      item?.criminal_language?.find((f: any) => f?.key === 1)
+    ).length;
+
+    console.log('Length of d20nStuKh:', lengthD20nStuKh);
+
+    const amountD20nStuKh = d20nStu.filter(
+      (item: any) =>
+        item?.criminal_language?.find((f: any) => f?.key === 1)?.amount
+    ).length;
+
+    console.log('Amount of d20nStuKh:', amountD20nStuKh);
 
     //T00
     const d20StuForFr = d20StuFor.filter((item: any) =>
@@ -153,11 +171,15 @@ export class TestComponent {
     );
 
     // 12day
-
+    console.log('d20Stu:', d20Stu.length);
+    console.log('d20nStu:', d20nStu.length);
     const d12 = this.data.filter((item: any) => item.urgent_obj?.key === 12);
 
     const d12Stu = d12.filter((item: any) => item?.isStudent);
     const d12nStu = d12.filter((item: any) => !item?.isStudent);
+    console.log('d12Stu:', d12Stu.length);
+    console.log('d12nStu:', d12nStu.length);
+
     const d12StuFor = d12Stu.filter(
       (item: any) => item?.national_application?.key === 'foreigner'
     );
@@ -171,7 +193,11 @@ export class TestComponent {
     const d12nStuKh = d12nStu.filter(
       (item: any) => item?.national_application?.key === 'khmer'
     );
-
+    const amountd12nStuKh = d12nStuKh.map(
+      (item: any) =>
+        item?.criminal_language?.find((f: any) => f?.key === 1)?.amount
+    );
+    console.log('Sum of Amounts in d12nStuKh:', amountd12nStuKh);
     //T00
     const d12StuForFr = d12StuFor.filter((item: any) =>
       item?.criminal_language?.find((f: any) => f?.key === 2)
@@ -308,7 +334,6 @@ export class TestComponent {
       d20StuForFrnEn,
       d20StuFornFrEn,
       d20StuFornFrnEn,
-
       // d20StuKhFr,
       // d20StuKhnFr,
       d20StuKhFrEn,
@@ -357,6 +382,20 @@ export class TestComponent {
       d12nStuKhnFrEn,
       d12nStuKhnFrnEn
     );
+    this.combinedData.forEach((item: any) => {
+      this.addToTotalAmount(
+        'khmer',
+        this.getCriminalLanguageAmount(item, 'khmer')
+      );
+      this.addToTotalAmount(
+        'english',
+        this.getCriminalLanguageAmount(item, 'english')
+      );
+      this.addToTotalAmount(
+        'french',
+        this.getCriminalLanguageAmount(item, 'french')
+      );
+    });
   }
   getCriminalLanguageKey(item: any, languageKey: string): string {
     const criminalLanguage = item?.criminal_language?.find(
@@ -364,10 +403,29 @@ export class TestComponent {
     );
     return criminalLanguage?.name_en.toLowerCase() || '';
   }
-  // getCriminalLanguageName(item: any, languageKey: string): string {
-  //   const criminalLanguage = item?.criminal_language?.find(
-  //     (lang: any) => lang.name_en.toLowerCase() === languageKey
-  //   );
-  //   return criminalLanguage?.name_en || '';
-  // }
+  getCriminalLanguageAmount(item: any, languageKey: string): number {
+    const criminalLanguage = item?.criminal_language?.find(
+      (lang: any) => lang.name_en.toLowerCase() === languageKey
+    );
+
+    const amount = criminalLanguage?.amount || 0;
+
+    return amount;
+  }
+
+  addToTotalAmount(languageKey: string, amount: number): void {
+    switch (languageKey) {
+      case 'khmer':
+        this.totalAmountKhmer += amount;
+        break;
+      case 'english':
+        this.totalAmountEnglish += amount;
+        break;
+      case 'french':
+        this.totalAmountFrench += amount;
+        break;
+      default:
+        break;
+    }
+  }
 }

@@ -11,19 +11,12 @@
           <th>Khmer</th>
           <th>English</th>
           <th>French</th>
+          <th>Amount Khmer</th>
+          <th>Amount English</th>
+          <th>Amount French</th>
         </tr>
       </thead>
       <tbody>
-        <!-- <ng-container *ngFor="let d20T of d20Arr; let i = index">
-          <tr>
-            <td>{{ i + 1 }}</td>
-            <td>{{ d20T.last_name }} {{ d20T.first_name }}</td>
-            <td>{{ d20T.criminal_language.name }}</td>
-            <td>{{ d20T.urgent_obj.name }}</td>
-            <td>{{ d20T.national_application?.name_en }}</td>
-
-          </tr>
-        </ng-container> -->
         <ng-container *ngFor="let item of combinedData; let i = index">
           <tr>
             <td>{{ i + 1 }}</td>
@@ -31,11 +24,20 @@
             <td></td>
             <td>{{ item.urgent_obj.name }}</td>
             <td>{{ item.national_application?.name_en }}</td>
-            <td>{{ getCriminalLanguageKey(item, 'khmer') }}</td>
-            <td>{{ getCriminalLanguageKey(item, 'english') }}</td>
-            <td>{{ getCriminalLanguageKey(item, 'french') }}</td>
+            <td>{{ getCriminalLanguageKey(item, "khmer") }}</td>
+            <td>{{ getCriminalLanguageKey(item, "english") }}</td>
+            <td>{{ getCriminalLanguageKey(item, "french") }}</td>
+            <td>{{ getCriminalLanguageAmount(item, "khmer") }}</td>
+            <td>{{ getCriminalLanguageAmount(item, "english") }}</td>
+            <td>{{ getCriminalLanguageAmount(item, "french") }}</td>
           </tr>
         </ng-container>
+        <tr class="totals">
+          <td colspan="8">Totals</td>
+          <td>{{ this.totalAmountKhmer }}</td>
+          <td>{{ this.totalAmountEnglish }}</td>
+          <td>{{ this.totalAmountFrench }}</td>
+        </tr>
       </tbody>
     </table>
   </div>
