@@ -26,28 +26,58 @@ export class TestComponent {
     const d20StuFor = d20Stu.filter(
       (item: any) => item?.national_application?.key === 'foreigner'
     );
+
+    const lengthd20StuFor = d20StuFor.map(
+      (item: any) =>
+        item?.criminal_language?.find((f: any) => f?.key === 1)?.amount
+    );
+
+    const amountd20StuFor = lengthd20StuFor.reduce(
+      (accumulator: any, currentValue: any) =>
+        accumulator + (currentValue || 0),
+      0
+    );
     const d20StuKh = d20Stu.filter(
       (item: any) => item?.national_application?.key === 'khmer'
+    );
+    const lengthd20StuKh = d20StuKh.map(
+      (item: any) =>
+        item?.criminal_language?.find((f: any) => f?.key === 1)?.amount
+    );
+
+    const amountd20StuKh = lengthd20StuKh.reduce(
+      (accumulator: any, currentValue: any) =>
+        accumulator + (currentValue || 0),
+      0
     );
 
     const d20nStuFor = d20nStu.filter(
       (item: any) => item?.national_application?.key === 'foreigner'
     );
+
+    const lengthd20nStuFor = d20nStuFor.map(
+      (item: any) =>
+        item?.criminal_language?.find((f: any) => f?.key === 1)?.amount
+    );
+
+    const amountd20nStuFor = lengthd20nStuFor.reduce(
+      (accumulator: any, currentValue: any) =>
+        accumulator + (currentValue || 0),
+      0
+    );
     const d20nStuKh = d20nStu.filter(
       (item: any) => item?.national_application?.key === 'khmer'
     );
-    const lengthD20nStuKh = d20nStu.filter((item: any) =>
-      item?.criminal_language?.find((f: any) => f?.key === 1)
-    ).length;
-
-    console.log('Length of d20nStuKh:', lengthD20nStuKh);
-
-    const amountD20nStuKh = d20nStu.filter(
+    const lengthd20nStuKh = d20nStuKh.map(
       (item: any) =>
         item?.criminal_language?.find((f: any) => f?.key === 1)?.amount
-    ).length;
+    );
 
-    console.log('Amount of d20nStuKh:', amountD20nStuKh);
+    const amountd20nStuKh = lengthd20nStuKh.reduce(
+      (accumulator: any, currentValue: any) =>
+        accumulator + (currentValue || 0),
+      0
+    );
 
     //T00
     const d20StuForFr = d20StuFor.filter((item: any) =>
@@ -171,33 +201,66 @@ export class TestComponent {
     );
 
     // 12day
-    console.log('d20Stu:', d20Stu.length);
-    console.log('d20nStu:', d20nStu.length);
     const d12 = this.data.filter((item: any) => item.urgent_obj?.key === 12);
 
     const d12Stu = d12.filter((item: any) => item?.isStudent);
     const d12nStu = d12.filter((item: any) => !item?.isStudent);
-    console.log('d12Stu:', d12Stu.length);
-    console.log('d12nStu:', d12nStu.length);
-
     const d12StuFor = d12Stu.filter(
       (item: any) => item?.national_application?.key === 'foreigner'
     );
+
+    const lengthd12StuFor = d12StuFor.map(
+      (item: any) =>
+        item?.criminal_language?.find((f: any) => f?.key === 1)?.amount
+    );
+
+    const amountd12StuFor = lengthd12StuFor.reduce(
+      (accumulator: any, currentValue: any) =>
+        accumulator + (currentValue || 0),
+      0
+    );
     const d12StuKh = d12Stu.filter(
       (item: any) => item?.national_application?.key === 'khmer'
+    );
+    const lengthd12StuKh = d12StuKh.map(
+      (item: any) =>
+        item?.criminal_language?.find((f: any) => f?.key === 1)?.amount
+    );
+
+    const amountd12StuKh = lengthd12StuKh.reduce(
+      (accumulator: any, currentValue: any) =>
+        accumulator + (currentValue || 0),
+      0
     );
 
     const d12nStuFor = d12nStu.filter(
       (item: any) => item?.national_application?.key === 'foreigner'
     );
-    const d12nStuKh = d12nStu.filter(
-      (item: any) => item?.national_application?.key === 'khmer'
-    );
-    const amountd12nStuKh = d12nStuKh.map(
+
+    const lengthd12nStuFor = d12nStuFor.map(
       (item: any) =>
         item?.criminal_language?.find((f: any) => f?.key === 1)?.amount
     );
-    console.log('Sum of Amounts in d12nStuKh:', amountd12nStuKh);
+
+    const amountd12nStuFor = lengthd12nStuFor.reduce(
+      (accumulator: any, currentValue: any) =>
+        accumulator + (currentValue || 0),
+      0
+    );
+    const d12nStuKh = d12nStu.filter(
+      (item: any) => item?.national_application?.key === 'khmer'
+    );
+    const lengthd12nStuKh = d12nStuKh.map(
+      (item: any) =>
+        item?.criminal_language?.find((f: any) => f?.key === 1)?.amount
+    );
+
+    const amountd12nStuKh = lengthd12nStuKh.reduce(
+      (accumulator: any, currentValue: any) =>
+        accumulator + (currentValue || 0),
+      0
+    );
+
     //T00
     const d12StuForFr = d12StuFor.filter((item: any) =>
       item?.criminal_language?.find((f: any) => f?.key === 2)
@@ -318,6 +381,125 @@ export class TestComponent {
           ? true
           : false)
     );
+
+    // For d20
+    const d20ForEn = d20.filter((item: any) =>
+      item?.criminal_language?.find((f: any) => f?.key === 3)
+    );
+    const lengthd20ForEn = d20ForEn.length;
+    const amountd20ForEn = d20ForEn.reduce(
+      (accumulator: any, item: any) =>
+        accumulator +
+        (item?.criminal_language?.find((f: any) => f?.key === 3)?.amount || 0),
+      0
+    );
+    console.log('d20ForEn', lengthd20ForEn, amountd20ForEn);
+
+    const d20ForFr = d20.filter((item: any) =>
+      item?.criminal_language?.find((f: any) => f?.key === 2)
+    );
+    const lengthd20ForFr = d20ForFr.length;
+    const amountd20ForFr = d20ForFr.reduce(
+      (accumulator: any, item: any) =>
+        accumulator +
+        (item?.criminal_language?.find((f: any) => f?.key === 2)?.amount || 0),
+      0
+    );
+    console.log('d20ForFr', lengthd20ForFr, amountd20ForFr);
+
+    // For d12
+    const d12ForEn = d12.filter((item: any) =>
+      item?.criminal_language?.find((f: any) => f?.key === 3)
+    );
+    const lengthd12ForEn = d12ForEn.length;
+    const amountd12ForEn = d12ForEn.reduce(
+      (accumulator: any, item: any) =>
+        accumulator +
+        (item?.criminal_language?.find((f: any) => f?.key === 3)?.amount || 0),
+      0
+    );
+    console.log('d12ForEn', lengthd12ForEn, amountd12ForEn);
+
+    const d12ForFr = d12.filter((item: any) =>
+      item?.criminal_language?.find((f: any) => f?.key === 2)
+    );
+    const lengthd12ForFr = d12ForFr.length;
+    const amountd12ForFr = d12ForFr.reduce(
+      (accumulator: any, item: any) =>
+        accumulator +
+        (item?.criminal_language?.find((f: any) => f?.key === 2)?.amount || 0),
+      0
+    );
+    console.log('d12ForFr', lengthd12ForFr, amountd12ForFr);
+
+    const totalLength =
+      lengthd12ForFr + lengthd12ForEn + lengthd20ForFr + lengthd20ForEn;
+    const totalAmount1 =
+      amountd12ForFr + amountd12ForEn + amountd20ForFr + amountd20ForEn;
+
+    console.log('Total length:', totalLength);
+    console.log('Total amount:', totalAmount1);
+
+    console.log('summary');
+    console.log(
+      '1,  length  amount  d12nStuKh:',
+      lengthd12nStuKh.length,
+      amountd12nStuKh
+    );
+    console.log(
+      '2,  length  amount  d20nStuKh:',
+      lengthd20nStuKh.length,
+      amountd20nStuKh
+    );
+    console.log(
+      '3,  length  amount  d20StuKh:',
+      lengthd20StuKh.length,
+      amountd20StuKh
+    );
+    console.log(
+      '4,  length  amount  d12StuKh:',
+      lengthd12StuKh.length,
+      amountd12StuKh
+    );
+    console.log(
+      '5,  length  amount  d12nStuKh:',
+      lengthd12nStuFor.length,
+      amountd12nStuFor
+    );
+    console.log(
+      '6,  length  amount  d20nStuFor:',
+      lengthd20nStuFor.length,
+      amountd20nStuFor
+    );
+    console.log(
+      '7,  length  amount  d20StuFor:',
+      lengthd20StuFor.length,
+      amountd20StuFor
+    );
+    console.log(
+      '8,  length  amount  d12StuFor:',
+      lengthd12StuFor.length,
+      amountd12StuFor
+    );
+
+    console.log(
+      'Total length:',
+      lengthd20StuKh.length +
+        lengthd20nStuKh.length +
+        lengthd12StuKh.length +
+        lengthd12nStuKh.length +
+        lengthd20StuFor.length +
+        lengthd20nStuFor.length +
+        lengthd12StuFor.length +
+        lengthd12nStuFor.length
+    );
+    const totalAmount =
+      amountd20StuKh + amountd20nStuKh + amountd12StuKh + amountd12nStuKh;
+
+    amountd20StuFor + amountd20nStuFor + amountd12StuFor + amountd12nStuFor;
+
+    console.log('Total amount:', totalAmount);
+
     this.combinedData = this.combinedData.concat(
       // d20,
       //bug
